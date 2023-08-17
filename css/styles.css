@@ -189,7 +189,7 @@ a.custom-card:hover {
   color: orange;
 }
 
-body {
+body.login-page {
   background-color: rgb(248, 249, 250);
   display: flex;
   justify-content: center;
