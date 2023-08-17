@@ -8,13 +8,13 @@ document.addEventListener("DOMContentLoaded", function(){
       const passwordInput = document.getElementById("password");
 
       const username = usernameInput.value.trim();
+      const password = passwordInput.value.trim();
 
-      if (username === "") {
-          alert("Por favor ingrese un nombre de usuario");
-          return;
+      if (username === "" || password === "") {
+        alert("Por favor rellene los campos");
+      } else {
+        sessionStorage.setItem("username", username);
+            window.location.href = "index.html";
       }
-
-      sessionStorage.setItem("username", username);
-      window.location.href = "index.html";
   });
 });
