@@ -2,7 +2,7 @@
 .card-body,
 .container,
 .site-header {
-  font-family: 'Verdana', serif !important;
+  font-family: 'Trebuchet MS', sans-serif !important;
 }
 
 .jumbotron .display-4 {
@@ -189,6 +189,30 @@ a.custom-card:hover {
   color: orange;
 }
 
+img{
+  padding: 2px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+}
+
 #prodAutos img{
-  max-height: 100px;
+  max-height: 150px;
+  float: left;
+  margin: 5px 20px 5px 5px;
+  background-color: white;
+}
+
+.producto{
+  border: 1px solid rgb(212, 212, 212);
+  border-radius: 3px;
+  background-color: white;
+}
+
+.producto:hover{
+  background-color: rgb(246, 246, 246);
+}
+
+.sold-count {
+  float: right;
+  color: gray;
 }
