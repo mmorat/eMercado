@@ -227,13 +227,24 @@ body.login-page {
   margin: 0;
 }
 
+.login-page img {
+  height: 170px;
+  padding: 4px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 100%;
+  margin: -100px 0px 20px 0px;
+  }
+
+.login-page>div {
+   text-align: center;
+  }
 
 #loginForm {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-
   width: 300px;
   display: flex;
   flex-direction: column;
@@ -255,9 +266,19 @@ body.login-page {
   align-items: center; 
 }
 
-#recordar-sesion {
-  margin-top: -22px;
-  margin-left: 147px; 
+#recordar {
+  display: inline-flex;
+  align-items: center;
+}
+
+#recordar input[type="checkbox"]{
+  order: 1;
+  vertical-align: middle;
+  margin: 3px 10px 0px 10px;
+}
+
+#recordar label {
+  white-space: nowrap;
 }
 
 #loginForm button {
@@ -273,6 +294,7 @@ body.login-page {
   cursor: pointer;
   transition: transform 0.2s;
 }
+
 #loginForm button:hover {
   transform: scale(1.1); 
 }
@@ -287,6 +309,9 @@ body.login-page {
   border-radius: 5px;
 }
 
+#olvidaste{
+  padding: 10px 0px 15px 0px;
+}
 
 body.login-page footer.text-muted {
   background-color: rgb(248, 249, 250);
@@ -313,6 +338,7 @@ p.float-end a {
   font-weight: bold;
   font-size: 16px;
   color: #555;
+  margin-right: 5vw;
 } 
 
 
