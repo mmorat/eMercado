@@ -67,15 +67,6 @@ nav a {
   font-size: 38px;
 }
 
-footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-footer p {
-  margin-bottom: .25rem;
-}
-
 .site-header a {
   color: white;
   transition: ease-in-out color .15s;
@@ -196,6 +187,8 @@ img{
   border-radius: 3px;
 }
 
+/*Productos*/
+
 #prodAutos img{
   max-height: 150px;
   float: left;
@@ -217,6 +210,10 @@ img{
   float: right;
   color: gray;
 }
+/*/////////////////*/
+
+
+/*Login*/
 
 body.login-page {
   background-color: rgb(248, 249, 250);
@@ -249,9 +246,7 @@ body.login-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
-
 
 #loginForm h1 {
   
@@ -312,8 +307,21 @@ body.login-page {
 #olvidaste{
   padding: 10px 0px 15px 0px;
 }
+/*/////////////////*/
 
-body.login-page footer.text-muted {
+
+/* Footer */
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+footer.text-muted {
   background-color: rgb(248, 249, 250);
   padding: 20px 0;
   text-align: center;
@@ -340,5 +348,4 @@ p.float-end a {
   color: #555;
   margin-right: 5vw;
 } 
-
-
+/*/////////////////*/
