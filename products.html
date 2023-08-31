@@ -95,10 +95,32 @@
       <div></div>
       <div></div>
     </div>
-  </div>
+  </div>  
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>
+
+  <div class="botonesfiltro">
+    <div class="row container p-0 m-0">
+        <div class="col">
+            <p class="font-weight-normal text-end my-2">Precio Min.</p>
+        </div>
+        <div class="col">
+            <input class="form-control" type="number" placeholder="min." id="rangeFilterPriceMin">
+        </div>
+        <div class="col">
+            <p class="font-weight-normal text-end my-2">Precio Max.</p>
+        </div>
+        <div class="col">
+            <input class="form-control" type="number" placeholder="max." id="rangeFilterPriceMax">
+        </div>
+        <div class="col-3 p-0">
+            <button class="btn btn-light btn-block" id="rangeFilterPrice">Filtrar por Precio</button>
+            <button class="btn btn-link btn-sm" id="clearRangeFilterPrice">Limpiar Filtros</button>
+        </div>
+    </div>
+</div>
+
 </body>
 
 </html>
