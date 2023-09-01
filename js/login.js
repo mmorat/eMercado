@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", function(){
     const loginForm = document.getElementById("loginForm");
   
@@ -18,6 +16,4 @@ document.addEventListener("DOMContentLoaded", function(){
             sessionStorage.setItem("username", username);
             window.location.href = "index.html";
         }
-  
-
 })});
