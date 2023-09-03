@@ -1,23 +1,3 @@
-// display username
- 
-const username = sessionStorage.getItem("username") || localStorage.getItem("username");
-if (!username) {
-  alert("You must log in");
-  setTimeout(function () {
-    window.location.href = "login.html";
-  }, 2300);
-}
-
-  // busca el user-display y crea const para lo sig.
-  const userDisplayElement = document.getElementById('user-display');
-
-  // si existe un nombre de usuario, se muestra
-  if (username) {
-      userDisplayElement.textContent = username;
-  }
-
-  //
-
 let productCost = 0;
 let productCount = 0;
 let comissionPercentage = 0.13;
@@ -166,4 +146,22 @@ document.addEventListener("DOMContentLoaded", function(e){
             });
         }
     });
+
+    // display username
+    
+    const username = sessionStorage.getItem("username") || localStorage.getItem("username");
+      
+    if (!username){
+        setTimeout(function() {
+            window.location.href = "login.html";
+        }, 3000);}
+
+    // busca el user-display y crea const para lo sig.
+    const userDisplayElement = document.getElementById('user-display');
+
+    // si existe un nombre de usuario, se muestra
+    if (username) {
+        userDisplayElement.textContent = username;
+    }
+    //
 });
