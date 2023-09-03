@@ -40,15 +40,15 @@ function setCatID(id) {
     window.location = "products.html"
 }
 
-function showCategoriesList(){
-
+function showCategoriesList(categoriesArray = currentCategoriesArray) {
     let htmlContentToAppend = "";
-    for(let i = 0; i < currentCategoriesArray.length; i++){
-        let category = currentCategoriesArray[i];
+    for (let i = 0; i < categoriesArray.length; i++) {
+        let category = categoriesArray[i];
 
-        if (((minCount == undefined) || (minCount != undefined && parseInt(category.productCount) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))){
-
+        if (
+            ((minCount == undefined) || (minCount != undefined && parseInt(category.productCount) >= minCount)) &&
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))
+        ) {
             htmlContentToAppend += `
             <div onclick="setCatID(${category.id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
@@ -64,12 +64,13 @@ function showCategoriesList(){
                     </div>
                 </div>
             </div>
-            `
+            `;
         }
-
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
     }
+
+    document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
 }
+
 
 function sortAndShowCategories(sortCriteria, categoriesArray){
     currentSortCriteria = sortCriteria;
@@ -140,4 +141,33 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         showCategoriesList();
     });
-});   
+
+    // toma ambos id's y los transforma en const
+    const searchInput = document.getElementById("searchInput");
+    const clearSearchInput = document.getElementById("clearSearchInput");
+
+    // agrega el evento 'input' al campo de búsqueda
+    searchInput.addEventListener("input", function () {
+        // función para filtrar y mostrar las categorías según texto ingresado
+        filterAndShowCategories(searchInput.value.trim().toLowerCase());
+    });
+
+    // agrega el evento de click al botón de limpiar
+    clearSearchInput.addEventListener("click", function () {
+        searchInput.value = "";
+        showC
+    });
+
+    function filterAndShowCategories(searchText) {
+        // filtra según el texto de búsqueda en el título o descripción
+        const filteredCategories = currentCategoriesArray.filter(function (category) {
+            const title = category.name.toLowerCase();
+            const description = category.description.toLowerCase();
+            return title.includes(searchText) || description.includes(searchText);
+        });
+    
+        // muestra el resultado
+        showCategoriesList(filteredCategories);
+    }
+
+});
