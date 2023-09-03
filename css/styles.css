@@ -365,3 +365,20 @@ p.float-end a {
 #user-display {
   color: white;
 }
+
+#prueba{
+  display: flex;
+}
+
+#rangeFilterCount{
+  border: 1px solid lightgray;
+}
+
+#clearSearchInput {
+  margin-left: 5px;
+  border: 1px solid lightgray;
+}
+
+#clearSearchInput:hover, #rangeFilterCount:hover{
+  background-color: lightgrey;
+  }
