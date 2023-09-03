@@ -1,28 +1,35 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const username = sessionStorage.getItem("username") || localStorage.getItem("username");
+  if (!username) {
+    alert("You must log in");
+    setTimeout(function () {
+      window.location.href = "login.html";
+    }, 2300);
+  }
+
   const lista = document.getElementById("showProd");
-  const baseURL = "https://japceibal.github.io/emercado-api/cats_products/";
   const catID = localStorage.getItem("catID");
+  const baseURL = "https://japceibal.github.io/emercado-api/cats_products/";
   const puntoJSON = ".json";
   let URL = baseURL + catID + puntoJSON;
 
   function compararAscendente(a, b) {
     return a.cost - b.cost;
-  };
+  }
 
   function compararDescendente(a, b) {
     return b.cost - a.cost;
-  };
+  }
 
   function compararRelevancia(a, b) {
     return b.soldCount - a.soldCount;
-  };
+  }
 
   function limpiarLista() {
     while (lista.firstChild) {
       lista.removeChild(lista.firstChild);
     }
-  };
-
+  }
 
   function mostrarProducts(products) {
     products.forEach((product) => {
@@ -47,8 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
       lista.appendChild(item);
     });
   }
-
-
 
   let arrayProducts = []; // array para guardar los datos obtenidos a través de fetch
 
@@ -78,22 +83,23 @@ document.addEventListener("DOMContentLoaded", function () {
         lista.appendChild(item);
       });
       
+      //modificación del título de la página donde anuncia la categoría seleccionada
       let categoria = data.catName;
       document.getElementById("tituloProd").textContent +=
-        ' "' + categoria + '"'; //modificación del título de la página donde anuncia la categoría seleccionada
+        ' "' + categoria + '"'; 
 
       //botones:
-      const precioA = document.getElementById("sortAsc"); //precio menor a MAYOR
-      const precioD = document.getElementById("sortDesc"); //precio MAYOR a menor
-      const rel = document.getElementById("sortBySold"); //ordenar por cantidad de unidades vendidas
-      const filtrar = document.getElementById("rangeFilterCount"); //filtrar
-      const limpiar = document.getElementById("clearRangeFilter"); //limpiar filtros
+      const precioA = document.getElementById("sortAsc");
+      const precioD = document.getElementById("sortDesc");
+      const rel = document.getElementById("sortBySold");
+      const filtrar = document.getElementById("rangeFilterCount");
+      const limpiar = document.getElementById("clearRangeFilter");
       //input precio:
-      const pMin = document.getElementById("rangeFilterCountMin"); //precio mínimo
-      const pMax = document.getElementById("rangeFilterCountMax"); //precio máximo
-      
-      //función que ordena según el precio de manera ascendente
-      document.getElementById("sortAsc").addEventListener("click", function () {
+      const pMin = document.getElementById("rangeFilterCountMin");
+      const pMax = document.getElementById("rangeFilterCountMax");
+
+     //función que ordena según el precio de manera ascendente
+      precioA.addEventListener("click", function () {
         arrayProducts.sort(compararAscendente);
         limpiarLista();
         mostrarProducts(arrayProducts);
@@ -114,30 +120,29 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       //función que, al presionar "Filtrar", muestra sólo los productos que entran en el rango de precios ingresado
-      filtrar.addEventListener("click", function() {
+      filtrar.addEventListener("click", function () {
         let arrayFiltrado = [];
 
-        arrayProducts.forEach(product => {
+        arrayProducts.forEach((product) => {
           const min = pMin ? pMin.value : 0; // si pMin está definido, min utiliza su valor. Si no lo está, min vale 0.
           const max = pMax !== undefined && pMax.value !== '' ? parseFloat(pMax.value) : Infinity; // si pMax está definido, max utiliza su valor. Si no lo está, max vale Infinity.
-          
+
           if (product.cost >= min && product.cost <= max) {
             arrayFiltrado.push(product);
           }
         });
-      
+
         limpiarLista();
         mostrarProducts(arrayFiltrado);
       });
 
       //función que limpia  los campos de precio mínimo y máximo y nos vuelve a mostrar todos los productos
-      limpiar.addEventListener("click", function(){
+      limpiar.addEventListener("click", function () {
         limpiarLista();
         pMin.value = "";
         pMax.value = "";
-        mostrarProducts(arrayProducts)
+        mostrarProducts(arrayProducts);
       });
-
     })
     .catch((error) => console.log(error));
 });
