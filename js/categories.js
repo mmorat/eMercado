@@ -141,6 +141,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
     });
 
+  
     // display username
     
     const username = sessionStorage.getItem("username") || localStorage.getItem("username");

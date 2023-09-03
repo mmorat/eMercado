@@ -189,7 +189,7 @@ img{
 
 /*Productos*/
 
-#prodAutos img{
+#showProd img{
   max-height: 150px;
   float: left;
   margin: 5px 20px 5px 5px;
@@ -209,6 +209,18 @@ img{
 .sold-count {
   float: right;
   color: gray;
+}
+
+.boton{
+  padding: 5px;
+  border: 1px solid lightgray;
+  border-radius: 5%;
+  color: rgb(66, 66, 66);
+  margin: 0px 2px;
+}
+
+.boton:hover{
+  background-color: lightgray;
 }
 /*/////////////////*/
 
