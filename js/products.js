@@ -145,4 +145,21 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     })
     .catch((error) => console.log(error));
+  
+    const searchInput = document.getElementById("searchInput");
+
+    searchInput.addEventListener("input", function () {
+      const searchText = searchInput.value.trim().toLowerCase();
+    
+      // Filtrar productos basados en el texto de búsqueda
+      const filteredProducts = arrayProducts.filter((product) => {
+        const title = product.name.toLowerCase();
+        const description = product.description.toLowerCase();
+        return title.includes(searchText) || description.includes(searchText);
+      });
+    
+      // Limpiar la lista y mostrar los productos filtrados
+      limpiarLista();
+      mostrarProducts(filteredProducts);
+    });
 });
