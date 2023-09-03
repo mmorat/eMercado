@@ -164,20 +164,13 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 
   //barra navegador
-    // toma ambos id's y los transforma en const
+    // toma id y lo transforma en const
     const searchInput = document.getElementById("searchInput");
-    const clearSearchInput = document.getElementById("clearSearchInput");
 
     // agrega el evento 'input' al campo de búsqueda
     searchInput.addEventListener("input", function () {
         // función para filtrar y mostrar las categorías según texto ingresado
         filterAndShowCategories(searchInput.value.trim().toLowerCase());
-    });
-
-    // agrega el evento de click al botón de limpiar
-    clearSearchInput.addEventListener("click", function () {
-        searchInput.value = "";
-        showC
     });
 
     function filterAndShowCategories(searchText) {
