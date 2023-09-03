@@ -11,10 +11,21 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("catID", 103);
         window.location = "products.html"
     });
-        const username = sessionStorage.getItem("username");
+        // display username
+    
+        const username = sessionStorage.getItem("username") || localStorage.getItem("username");
       
-        if (!username){
-            setTimeout(function() {
-                window.location.href = "login.html";
-              }, 3000);}
+    if (!username){
+        setTimeout(function() {
+            window.location.href = "login.html";
+        }, 3000);}
+
+    // busca el user-display y crea const para lo sig.
+    const userDisplayElement = document.getElementById('user-display');
+
+    // si existe un nombre de usuario, se muestra
+    if (username) {
+        userDisplayElement.textContent = username;
+    }
+    //
 })
