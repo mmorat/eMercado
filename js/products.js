@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function () {
+
 // display username
  
 const username = sessionStorage.getItem("username") || localStorage.getItem("username");
@@ -17,9 +19,6 @@ if (!username) {
   }
 
   //
-
-document.addEventListener("DOMContentLoaded", function () {
-
   const lista = document.getElementById("showProd");
   const catID = localStorage.getItem("catID");
   const baseURL = "https://japceibal.github.io/emercado-api/cats_products/";
@@ -158,4 +157,25 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     })
     .catch((error) => console.log(error));
+  
+//campo-buscador
+    const searchInput = document.getElementById("searchInput");
+
+    searchInput.addEventListener("input", function () {
+      const searchText = searchInput.value.trim().toLowerCase();
+    
+      // Filtrar productos basados en el texto de búsqueda
+      const filteredProducts = arrayProducts.filter((product) => {
+        const title = product.name.toLowerCase();
+        const description = product.description.toLowerCase();
+        return title.includes(searchText) || description.includes(searchText);
+      });
+    
+      // Limpiar la lista y mostrar los productos filtrados
+      limpiarLista();
+      mostrarProducts(filteredProducts);
+    });
+
+    //
+
 });
