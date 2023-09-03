@@ -365,3 +365,23 @@ p.float-end a {
 #user-display {
   color: white;
 }
+
+
+/*Barra de navegador*/
+
+.buscar {
+	width: 600px;
+	height: 40px;
+	border-radius: 10px;
+	border: solid 2px rgb(128, 182, 252);
+}
+
+.btn-buscar {
+	width: 70px;
+	height: 40px;
+	background: rgb(128, 182, 252);
+	border-radius: 10px;
+	border: solid 2px rgb(8, 63, 243, 0.933);
+  margin-right: 70px;
+}
+/*/////////////////*/
