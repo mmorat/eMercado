@@ -383,3 +383,20 @@ p.float-end a {
 #clearSearchInput:hover, #rangeFilterCount:hover{
   background-color: lightgrey;
   }
+
+  #prueba>div{
+    display: flex;
+  }
+
+  #filtrosPrecio{
+    display: contents;
+  }
+
+  #filtrosPrecio .col{
+    margin: 0 5px;
+  }
+
+  #filtrosPrecio #clearRangeFilter{
+    margin-left: 20px;
+  }
+
