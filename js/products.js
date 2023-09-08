@@ -157,25 +157,22 @@ if (!username) {
       });
     })
     .catch((error) => console.log(error));
-  
-//campo-buscador
+    
+    // campo buscador
     const searchInput = document.getElementById("searchInput");
 
     searchInput.addEventListener("input", function () {
-      const searchText = searchInput.value.trim().toLowerCase();
+      const textoBusqueda = searchInput.value.trim().toLowerCase();
     
-      // Filtrar productos basados en el texto de búsqueda
-      const filteredProducts = arrayProducts.filter((product) => {
-        const title = product.name.toLowerCase();
-        const description = product.description.toLowerCase();
-        return title.includes(searchText) || description.includes(searchText);
+      // Filtrar los productos según el texto de búsqueda
+      const productosFiltrados = arrayProducts.filter((producto) => {
+        const titulo = producto.name.toLowerCase();
+        const descripcion = producto.description.toLowerCase();
+        return titulo.includes(textoBusqueda) || descripcion.includes(textoBusqueda);
       });
     
       // Limpiar la lista y mostrar los productos filtrados
       limpiarLista();
-      mostrarProducts(filteredProducts);
+      mostrarProducts(productosFiltrados);
     });
-
-    //
-
 });

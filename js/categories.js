@@ -163,25 +163,22 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 
 
-  //barra navegador
+    //barra navegador
     // toma id y lo transforma en const
     const searchInput = document.getElementById("searchInput");
 
-    // agrega el evento 'input' al campo de búsqueda
     searchInput.addEventListener("input", function () {
-        // función para filtrar y mostrar las categorías según texto ingresado
-        filterAndShowCategories(searchInput.value.trim().toLowerCase());
+    
+        const searchText = searchInput.value.trim().toLowerCase();
+
+    // Filtra los productos según el texto de búsqueda
+    const filteredProducts = arrayProducts.filter((product) => {
+        const title = product.name.toLowerCase();
+        const description = product.description.toLowerCase();
+        return title.includes(searchText) || description.includes(searchText);
     });
 
-    function filterAndShowCategories(searchText) {
-        // filtra según el texto de búsqueda en el título o descripción
-        const filteredCategories = currentCategoriesArray.filter(function (category) {
-            const title = category.name.toLowerCase();
-            const description = category.description.toLowerCase();
-            return title.includes(searchText) || description.includes(searchText);
-        });
-    
-        // muestra el resultado
-        showCategoriesList(filteredCategories);
-    }
+        // Muestra los productos filtrados
+        mostrarProducts(filteredProducts);
+    });
 });
