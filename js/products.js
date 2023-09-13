@@ -1,29 +1,35 @@
 document.addEventListener("DOMContentLoaded", function () {
-
-// display username
- 
-const username = sessionStorage.getItem("username") || localStorage.getItem("username");
-if (!username) {
-  alert("You must log in");
-  setTimeout(function () {
-    window.location.href = "login.html";
+  
+  // display username
+  
+  const username = sessionStorage.getItem("username") || localStorage.getItem("username");
+  if (!username) {
+    alert("You must log in");
+    setTimeout(function () {
+      window.location.href = "login.html";
   }, 2300);
 }
 
-  // busca el user-display y crea const para lo sig.
-  const userDisplayElement = document.getElementById('user-display');
+// busca el user-display y crea const para lo sig.
+const userDisplayElement = document.getElementById('user-display');
 
-  // si existe un nombre de usuario, se muestra
-  if (username) {
+// si existe un nombre de usuario, se muestra
+if (username) {
       userDisplayElement.textContent = username;
   }
-
+    
   //
+
   const lista = document.getElementById("showProd");
   const catID = localStorage.getItem("catID");
   const baseURL = "https://japceibal.github.io/emercado-api/cats_products/";
   const puntoJSON = ".json";
   let URL = baseURL + catID + puntoJSON;
+    
+  function setProdID(id) {
+    localStorage.setItem("prodID", id);
+    window.location = "product-info.html";
+  }
 
   function compararAscendente(a, b) {
     return a.cost - b.cost;
@@ -47,6 +53,9 @@ if (!username) {
     products.forEach((product) => {
       const item = document.createElement("div");
       item.classList.add("producto");
+      item.onclick = function () {
+        setProdID(product.id);
+      };
 
       const img = document.createElement("img");
       img.src = product.image;
@@ -76,6 +85,9 @@ if (!username) {
       data.products.forEach((product) => {
         const item = document.createElement("div");
         item.classList.add("producto");
+        item.onclick = function () {
+          setProdID(product.id);
+        };
 
         const img = document.createElement("img");
         img.src = product.image;
@@ -159,6 +171,7 @@ if (!username) {
     .catch((error) => console.log(error));
   
 //campo-buscador
+
     const searchInput = document.getElementById("searchInput");
 
     searchInput.addEventListener("input", function () {
@@ -177,5 +190,8 @@ if (!username) {
     });
 
     //
+
+
+
 
 });

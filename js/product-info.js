@@ -5,4 +5,10 @@ if (!username){
     setTimeout(function() {
         window.location.href = "login.html";
       }, 2300);}
+
+    //
+
+    const prodID = localStorage.getItem("prodID");
+
+    console.log(prodID)
 })
