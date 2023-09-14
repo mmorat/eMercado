@@ -90,6 +90,15 @@ if (!username) {
         h4.textContent = `${product.name} - ${product.currency}$ ${product.cost}`;
         item.appendChild(h4);
 
+         // Agregar un atributo data-id con el valor del ID del producto / cambios 13/09 A.R.
+      item.setAttribute("data-id", product.id);
+
+      // Agregar un evento click al elemento de producto
+      item.addEventListener("click", function () {
+        const selectedId = item.getAttribute("data-id");
+        seleccionarProducto(selectedId); // Llamar a la función con el ID del producto
+      });
+        // fin cambios A.R.
         item.appendChild(document.createTextNode(product.description));
 
         lista.appendChild(item);
@@ -105,7 +114,7 @@ if (!username) {
       const precioD = document.getElementById("sortDesc");
       const rel = document.getElementById("sortBySold");
       const filtrar = document.getElementById("rangeFilterCount");
-      const limpiar = document.getElementById("clearRangeFilter");
+      const limpiar = document.getElementById("clearSearchInput");
       //input precio:
       const pMin = document.getElementById("rangeFilterCountMin");
       const pMax = document.getElementById("rangeFilterCountMax");
@@ -175,4 +184,9 @@ if (!username) {
       limpiarLista();
       mostrarProducts(productosFiltrados);
     });
+    // se crea la funcion seleccionar producto que tome el id del producto del local y lo redirija a product-info
+    function seleccionarProducto(id) {
+      localStorage.setItem("selectedProductId", id);
+      window.location.href = "product-info.html";
+    }
 });
