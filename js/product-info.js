@@ -33,33 +33,39 @@ if (!username){
             
               productContainer.innerHTML = `
               <h1>${product.name}</h1>
-            
+              
               <div>
-                  <h4>Categoría:</h4>
-                  <p>${product.category} </p>
-                  <h4>Cantidad de unidades vendidas:</h4>
-                  <p>${product.soldCount}</p>
-                  
-                  <h4>Precio</h4>
-                  <p> ${product.currency} $${product.cost}</p>
-                  
-                  <h4>Descripción</h4>
-                  <p> ${product.description}</p>
-                  
+              <div>
+                    <img id="imgPrincipal" src="${product.images[0]}">
+              </div>
+                <div id="infoProd">
+                    <h4>Categoría:</h4>
+                    <p>${product.category} </p>
+                    
+                    <h4>Cantidad de unidades vendidas:</h4>
+                    <p>${product.soldCount}</p>
+                
+                    <h4>Precio</h4>
+                    <p> ${product.currency} $${product.cost}</p>
+                
+                    <h4>Descripción</h4>
+                    <p> ${product.description}</p>
+                </div>
+              </div>
+
                   <h4>Imagenes Ilustrativas</h4>
                   <div id="imagenes">
-                      <img src="${product.images[0]}">
                       <img src="${product.images[1]}">
                       <img src="${product.images[2]}">
                       <img src="${product.images[3]}">
                   </div>
                   <h4>Productos Relacionados</h4>
                   <div id="relProducts">
-                      <div>
+                      <div id="relProd0">
                           <img src="${product.relatedProducts[0].image}">
                           <h5> ${product.relatedProducts[0].name}</h5>
                       </div>
-                      <div>
+                      <div id="relProd1">
                           <img src="${product.relatedProducts[1].image}">
                           <h5> ${product.relatedProducts[1].name}</h5>
                       </div>
@@ -67,6 +73,14 @@ if (!username){
               </div>
                `;
               document.querySelector("main").appendChild(productContainer);
+              document.getElementById("relProd0").addEventListener("click", function(){
+                localStorage.setItem("selectedProductId", product.relatedProducts[0].id);
+                location.reload();
+              })
+              document.getElementById("relProd1").addEventListener("click", function(){
+                localStorage.setItem("selectedProductId", product.relatedProducts[1].id);
+                location.reload();
+              })
             })
             .catch((error) => {
               console.error("Error al cargar la información del producto", error);
@@ -78,30 +92,65 @@ if (!username){
       
 // codigo sobre comentarios 
 
-const containerdecomentario = document.getElementById('comments-container');
-const formulariocomentario = document.getElementById('comment-form');
+const containerComentarios = document.getElementById('comments-container');
+const formComentarios = document.getElementById('comment-form');
+let arrComentarios = [];
 
-// Hacer una solicitud a la API para obtener los 10 comentarios más recientes
-fetch(`https://japceibal.github.io/emercado-api/products_comments/${selectedProductId}.json`)
-    .then(response => response.json())
-    .then(data => {
-        // Mostrar los comentarios en la página
-        data.forEach(comment => {
-            const commentDiv = document.createElement('div');
-            commentDiv.innerHTML = `
-                <strong>Nombre: ${comment.user}</strong>
-                <p>Comentario: ${comment.description}</p>
-                
-                
-                <div class="rating">${getStarsHTML(comment.score) }</div>
-                <p>Fecha: ${comment.dateTime}</p><hr>
-              
-            `;
-            containerdecomentario.appendChild(commentDiv);
-        });
+
+function fetchComentarios() {
+  fetch(`https://japceibal.github.io/emercado-api/products_comments/${selectedProductId}.json`)
+    .then((response) => response.json())
+    .then((data) => {
+      arrComentarios = data.sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime));
+      
+      displayComentarios();
+    })
+    .catch((error) => {
+        console.error("Error fetching comments", error);
     });
+}
 
 
+function displayComentarios() {
+    const containerComentarios = document.getElementById('comments-container');
+    containerComentarios.innerHTML = ''; 
+    arrComentarios.forEach((comentario) => {
+    const divComentarios = document.createElement('div');
+    divComentarios.innerHTML = `
+      <p><strong>Usuario: </strong> ${comentario.user}</p>
+      <p><strong>Comentario: </strong> ${comentario.description}</p>
+      <div class="rating">${getStarsHTML(comentario.score)}</div>
+      <p>Fecha: ${comentario.dateTime}</p><hr>
+    `;
+    containerComentarios.appendChild(divComentarios);
+  });
+}
+
+
+formComentarios.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const commentText = document.getElementById('comment').value;
+    const rating = document.getElementById('rating').value;
+    const now = new Date();
+    now.setUTCHours(now.getUTCHours() - 3);
+    const fechaHora = now.toISOString().slice(0, 19).replace('T', ' ');;
+
+    const nuevoComentario = {
+        user: username, 
+        description: commentText,
+        score: Number(rating),
+        dateTime: fechaHora,
+    };
+    arrComentarios.push(nuevoComentario);
+    displayComentarios();
+
+
+  formComentarios.reset();
+});
+
+
+fetchComentarios();
+        
 // Función para generar HTML de estrellas
 function getStarsHTML(rating) {
     const starsHTML = Array(rating).fill('<span class="fa fa-star checked"></span>').join('');
@@ -110,30 +159,6 @@ function getStarsHTML(rating) {
     return `<div class="stars">${starsHTML + casillasvacias}</div>`;
 }
 
-// Agregar un evento de escucha para el formulario de comentarios
-formulariocomentario.addEventListener('submit', function (e) {
-    e.preventDefault();
 
-    const commentText = document.getElementById('comment').value;
-    const rating = document.getElementById('rating').value;
-    // Obtener la fecha y hora actual
-    const now = new Date();
-    const fechaHora = now.toLocaleString(); // Obtiene la fecha y hora en un formato legible
-    
-
-    const commentDiv = document.createElement('div');
-
-    commentDiv.innerHTML = `
-        <strong>Nombre: ${username}</strong><br>
-        <p>Comentario: ${commentText}</p>
-        <div class="rating">${getStarsHTML(Number(rating))}</div>
-        <p>Fecha: ${fechaHora}</p> 
-        <hr>
-    `;
-    containerdecomentario.insertBefore(commentDiv, containerdecomentario.firstChild);
-
-    // Limpiar el formulario
-    formulariocomentario.reset();
-});     
       
 })

@@ -425,7 +425,7 @@ p.float-end a {
 #submitboton {
 position: relative;
 top: 0.5cqmax;
-margin-left: 2cqmax;
+margin-left: 380px;
 
 
 }
@@ -439,41 +439,64 @@ margin-left: 2cqmax;
 #showInfo{
   display: flex;
   flex-direction: column;
-  
 }
+
 #showInfo h4{
   margin-top: 20px;
   font-size: 130%;
 }
+
 #imagenes{
   display: flex;
   flex-direction: row;
 }
+
 #imagenes img{
   max-height: 250px;
   margin: 5px 20px 5px 5px;
   background-color: white;
 }
+
 #relProducts{
   display: flex;
   width: fit-content;
 }
+
 #relProducts div{
   background-color: white;
   border: 1px solid lightgray;
   border-radius: 3px;
-  
 }
+
+#relProducts div:hover{
+  background-color: lightgray;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
 #relProducts img{
   max-height: 150px;
   background-color: white;
 }
+
+#relProducts img:hover{
+  max-height: 150px;
+  background-color: lightgray;
+}
+
 #relProducts h5{
   margin-left: 5px;
 }
 
-#bodys {
- 
+#imgPrincipal{
+  height: 50vh;
+  width: fit-content;
+  float: left;
+  margin-right: 20px;
+}
 
+#bodys{
+  margin: 0px 100px;
 }
 /*/////////////////*/
