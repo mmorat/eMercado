@@ -363,6 +363,53 @@ p.float-end a {
 }
 /*/////////////////*/
 
+
+/*Product Info*/
+
+#showInfo{
+  display: flex;
+  flex-direction: column;
+}
+
+#showInfo h4{
+  margin-top: 20px;
+}
+
+#imagenes{
+  display: flex;
+  flex-direction: row;
+}
+
+#imagenes img{
+  max-height: 250px;
+  margin: 5px 20px 5px 5px;
+  background-color: white;
+}
+
+#relProducts{
+  display: flex;
+  width: fit-content;
+
+}
+
+#relProducts div{
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  
+}
+
+#relProducts img{
+  max-height: 150px;
+  background-color: white;
+}
+
+#relProducts h5{
+  margin-left: 5px;
+}
+
+/*/////////////////*/
+
 #user-display {
   color: white;
 }
