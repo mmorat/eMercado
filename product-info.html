@@ -13,7 +13,7 @@
   <link href="css/styles.css" rel="stylesheet">
 </head>
 
-<body id="bodys">
+<body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -38,7 +38,7 @@
       </div>
     </div>
   </nav>
-  <main>
+  <main id="bodys">
     <div class="container">
       
         <br><h4 >INFORMACION DEL PRODUCTO </h4>
@@ -55,8 +55,8 @@
     <h2>Comenta y puntúa:</h2><br>
     <form id="comment-form">
 
-        <label for="comment">Comentario:</label>
-        <textarea id="comment" name="comment" rows="3" cols="40" ></textarea><br>
+        
+        <textarea id="comment" name="comment" placeholder=" Escribe tu comentario aquí..." rows="3" cols="70" ></textarea><br>
         
         <label for="rating">Puntuación:</label>
         <select id="rating" name="rating">
@@ -67,7 +67,6 @@
             <option value="5">5 estrellas</option>
         </select><br>
         
-
         <input type="submit" value="Agregar comentario" id="submitboton">
     </form>
   </div> <br>
