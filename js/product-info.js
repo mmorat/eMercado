@@ -31,27 +31,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const productContainer = document.createElement("div");
         productContainer.setAttribute("id", "showInfo");
         productContainer.classList.add("container");
-        let arrayImagen=product.images;
+        let arrayImagen = product.images;
 
         productContainer.innerHTML = `
       <h1>${product.name}</h1>
-      
-      <h4>Imagenes Ilustrativas</h4>
-
-      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner" id="carousel-inner">
-          </div>
-
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-             <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-          </button>
-      </div>
-
 
         <div id="infoProd">
             <h4>Categoría:</h4>
@@ -81,7 +64,26 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
       </div>
       `;
-        
+
+        const carruInner = document.getElementById("carousel-inner");
+
+        for (let index = 0; index < arrayImagen.length; index++) {
+          const carouselItem = document.createElement("div");
+          carouselItem.classList.add("carousel-item");
+
+          const imgElement = document.createElement("img");
+          imgElement.src = arrayImagen[index];
+          imgElement.classList.add("d-block", "w-100");
+
+          carouselItem.appendChild(imgElement);
+          carruInner.appendChild(carouselItem);
+
+          // Establece el primer elemento como activo
+          if (index === 0) {
+            carouselItem.classList.add("active");
+          }
+        }
+
 
         document.querySelector("main").appendChild(productContainer);
         document.getElementById("relProd0").addEventListener("click", function () {
@@ -106,24 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("No se ha seleccionado ningún producto.");
   }
 
-  const carruImg = document.getElementById("carousel-inner"); // Selecciona el elemento carousel-inner
 
-  for (let index = 0; index < arrayImagen.length; index++) {
-    const carouselItem = document.createElement("div");
-    carouselItem.classList.add("carousel-item");
-    
-    const imgElement = document.createElement("img");
-    imgElement.src = arrayImagen[index];
-    imgElement.classList.add("d-block", "w-100");
-    
-    carouselItem.appendChild(imgElement);
-    carruImg.appendChild(carouselItem);
-  }
-  
-  // Establece el primer elemento como activo
-  carruImg.firstElementChild.classList.add("active");
-
-  
   // codigo sobre comentarios 
 
   const containerComentarios = document.getElementById('comments-container');

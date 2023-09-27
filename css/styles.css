@@ -439,6 +439,8 @@ margin-left: 380px;
 #showInfo{
   display: flex;
   flex-direction: column;
+  margin-left: 100px;
+  margin-top: 150px;
 }
 
 #showInfo h4{
@@ -488,15 +490,30 @@ margin-left: 380px;
 #relProducts h5{
   margin-left: 5px;
 }
+#carouselExampleControls {
+  width: 1000px; 
+  margin: 0 auto;
+  float: right;
+}
 
-#imgPrincipal{
-  height: 50vh;
-  width: fit-content;
-  float: left;
-  margin-right: 20px;
+#carousel-inner img {
+  max-width: 100%; 
+  height: auto; 
+  margin-left: 50px;
 }
 
 #bodys{
-  margin: 0px 100px;
+  margin: 30px 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Divide el contenedor en dos columnas iguales */
+  gap: 20px; /* Espacio entre las columnas */
 }
+
+
+#infoDelProdu {
+  margin-bottom: 80px;
+  margin-left: 70px;
+}
+
+
 /*/////////////////*/
