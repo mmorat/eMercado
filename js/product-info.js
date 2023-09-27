@@ -6,89 +6,95 @@ if (!username){
         window.location.href = "login.html";
       }, 2300);}
 
-      // busca el user-display y crea const para lo sig.
-      const userDisplayElement = document.getElementById('user-display');
+// busca el user-display y crea const para lo sig.
+const userDisplayElement = document.getElementById('user-display');
 
-      // si existe un nombre de usuario, se muestra
-      if (username) {
-       userDisplayElement.textContent = username;
-      }
-      //
+// si existe un nombre de usuario, se muestra
+if (username) {
+  userDisplayElement.textContent = username;
+}
+//
 
-        const selectedProductId = localStorage.getItem("selectedProductId");
-        
-        if (selectedProductId) {
-          const productInfoURL = `https://japceibal.github.io/emercado-api/products/${selectedProductId}.json`;
+  const selectedProductId = localStorage.getItem("selectedProductId");
+  
+  
+  
+  function fetchInfo(){
+    const productInfoURL = `https://japceibal.github.io/emercado-api/products/${selectedProductId}.json`;
+    fetch(productInfoURL)
+    .then((response) => response.json())
+    .then((product) => {  
+      // Actualiza el contenido de la página con la información del producto
       
-          fetch(productInfoURL)
-            .then((response) => response.json())
-            .then((product) => {  
-              // Actualiza el contenido de la página con la información del producto
-              
-              
-              const productContainer = document.createElement("div");
-              productContainer.setAttribute("id", "showInfo");
-              productContainer.classList.add("container");
-              
+      
+      const productContainer = document.createElement("div");
+      productContainer.setAttribute("id", "showInfo");
+      productContainer.classList.add("container");
+      
+    
+      productContainer.innerHTML = `
+      <h1>${product.name}</h1>
+      
+      <div>
+      <div>
+            <img id="imgPrincipal" src="${product.images[0]}">
+      </div>
+        <div id="infoProd">
+            <h4>Categoría:</h4>
+            <p>${product.category} </p>
             
-              productContainer.innerHTML = `
-              <h1>${product.name}</h1>
-              
-              <div>
-              <div>
-                    <img id="imgPrincipal" src="${product.images[0]}">
+            <h4>Cantidad de unidades vendidas:</h4>
+            <p>${product.soldCount}</p>
+        
+            <h4>Precio</h4>
+            <p> ${product.currency} $${product.cost}</p>
+        
+            <h4>Descripción</h4>
+            <p> ${product.description}</p>
+        </div>
+        </div>
+        
+        <h4>Imagenes Ilustrativas</h4>
+        <div id="imagenes">
+        <img src="${product.images[1]}">
+              <img src="${product.images[2]}">
+              <img src="${product.images[3]}">
+          </div>
+          <h4>Productos Relacionados</h4>
+          <div id="relProducts">
+              <div id="relProd0">
+                  <img src="${product.relatedProducts[0].image}">
+                  <h5> ${product.relatedProducts[0].name}</h5>
               </div>
-                <div id="infoProd">
-                    <h4>Categoría:</h4>
-                    <p>${product.category} </p>
-                    
-                    <h4>Cantidad de unidades vendidas:</h4>
-                    <p>${product.soldCount}</p>
-                
-                    <h4>Precio</h4>
-                    <p> ${product.currency} $${product.cost}</p>
-                
-                    <h4>Descripción</h4>
-                    <p> ${product.description}</p>
-                </div>
+              <div id="relProd1">
+                  <img src="${product.relatedProducts[1].image}">
+                  <h5> ${product.relatedProducts[1].name}</h5>
               </div>
+          </div>
+      </div>
+      `;
+      document.querySelector("main").appendChild(productContainer);
+      document.getElementById("relProd0").addEventListener("click", function(){
+        localStorage.setItem("selectedProductId", product.relatedProducts[0].id);
+        location.reload();
+      })
+      document.getElementById("relProd1").addEventListener("click", function(){
+        localStorage.setItem("selectedProductId", product.relatedProducts[1].id);
+        location.reload();
+      })
+    })
+    .catch((error) => {
+      console.error("Error al cargar la información del producto", error);
+    });
+    }
 
-                  <h4>Imagenes Ilustrativas</h4>
-                  <div id="imagenes">
-                      <img src="${product.images[1]}">
-                      <img src="${product.images[2]}">
-                      <img src="${product.images[3]}">
-                  </div>
-                  <h4>Productos Relacionados</h4>
-                  <div id="relProducts">
-                      <div id="relProd0">
-                          <img src="${product.relatedProducts[0].image}">
-                          <h5> ${product.relatedProducts[0].name}</h5>
-                      </div>
-                      <div id="relProd1">
-                          <img src="${product.relatedProducts[1].image}">
-                          <h5> ${product.relatedProducts[1].name}</h5>
-                      </div>
-                  </div>
-              </div>
-               `;
-              document.querySelector("main").appendChild(productContainer);
-              document.getElementById("relProd0").addEventListener("click", function(){
-                localStorage.setItem("selectedProductId", product.relatedProducts[0].id);
-                location.reload();
-              })
-              document.getElementById("relProd1").addEventListener("click", function(){
-                localStorage.setItem("selectedProductId", product.relatedProducts[1].id);
-                location.reload();
-              })
-            })
-            .catch((error) => {
-              console.error("Error al cargar la información del producto", error);
-            });
-        } else {
-          // Maneja el caso en el que no se haya seleccionado ningún producto
-          console.log("No se ha seleccionado ningún producto.");
-        }
+    if (selectedProductId) {
+      fetchInfo()
+    } else {
+      // Maneja el caso en el que no se haya seleccionado ningún producto
+      console.log("No se ha seleccionado ningún producto.");
+    }
+
       
 // codigo sobre comentarios 
 
@@ -99,7 +105,7 @@ let arrComentarios = [];
 
 function fetchComentarios() {
   fetch(`https://japceibal.github.io/emercado-api/products_comments/${selectedProductId}.json`)
-    .then((response) => response.json())
+  .then((response) => response.json())
     .then((data) => {
       arrComentarios = data.sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime));
       
