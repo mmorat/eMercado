@@ -13,13 +13,3 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 })
-const logout = document.getElementById("logout")
-logout.addEventListener('click', function () {
-    // Eliminar el nombre de usuario del almacenamiento local y la sesión
-    sessionStorage.removeItem('username');
-    localStorage.removeItem('username');
-  
-    // Redirigir al usuario a la página de inicio de sesión
-    window.location.href = 'login.html';
-  });
-
