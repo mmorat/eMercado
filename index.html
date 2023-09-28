@@ -29,12 +29,19 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item dropdown"> <!-- Agregamos una lista desplegable -->
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span id="user-display"></span> <!-- Nombre de usuario aquí -->
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="userDropdown">
+              <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+              <li><a class="dropdown-item" href="profile.html">Mi perfil</a></li>
+              <li><a class="dropdown-item" href="login.html">Cerrar sesión</a></li>
+            </ul>
           </li>
         </ul>
-        <div id="user-display"></div>
       </div>
-    </div>
+     </div>
   </nav>
   <main>
     <div class="jumbotron text-center"></div>
