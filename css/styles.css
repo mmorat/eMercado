@@ -76,6 +76,16 @@ nav a {
   color: black;
 }
 
+.dropdown-menu{
+  background-color: #222527;
+}
+.dropdown-menu a{
+  color: #ffff;
+}
+.dropdown-menu button{
+  color: #ffffff;
+}
+
 .dropzone {
   border: 2px dashed #0087F7;
   border-radius: 5px;
