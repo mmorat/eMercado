@@ -27,7 +27,48 @@
     }
   }
 
-  setTheme(getPreferredTheme())
+  setTheme(getPreferredTheme());
+
+  const tema = getPreferredTheme();
+
+
+  const switchBackgroundClasses = (fromClass, toClass) => {
+    const elements = document.querySelectorAll(`.${fromClass}`);
+    
+    elements.forEach(element => {
+      element.classList.remove(fromClass);
+      element.classList.add(toClass);
+    });
+  };
+
+  if (tema === 'dark') {
+    switchBackgroundClasses('bg-light', 'bg-dark');
+    switchBackgroundClasses('btn-light', 'btn-dark');
+    document.querySelector('.jumbotron').style.backgroundImage = 'url("../img/cover_back_dark.png")';
+    
+  } else if (tema === 'light'){
+    switchBackgroundClasses('bg-dark', 'bg-light');
+    switchBackgroundClasses('btn-dark', 'btn-light');
+    document.querySelector('.jumbotron').style.backgroundImage = 'url("../img/cover_back.png")';
+  };
+
+  const btnL = document.getElementById("btn-light");
+  const btnD = document.getElementById("btn-dark");
+  
+  btnL.addEventListener("click", (e) => {
+    e.stopPropagation();
+    switchBackgroundClasses('bg-dark', 'bg-light');
+    switchBackgroundClasses('btn-dark', 'btn-light');
+    document.querySelector('.jumbotron').style.backgroundImage = 'url("../img/cover_back.png")';
+  });
+
+  btnD.addEventListener("click", (e) => {
+    e.stopPropagation();
+    switchBackgroundClasses('bg-light', 'bg-dark');
+    switchBackgroundClasses('btn-light', 'btn-dark');
+    document.querySelector('.jumbotron').style.backgroundImage = 'url("../img/cover_back_dark.png")';
+  });
+
 
   const showActiveTheme = (theme, focus = false) => {
     const themeSwitcher = document.querySelector('#bd-theme')
@@ -56,6 +97,7 @@
       themeSwitcher.focus()
     }
   }
+
 
   // Evitar la propagación del clic en el botón de cambio de tema
   const themeButton = document.getElementById("bd-theme");

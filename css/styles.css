@@ -13,6 +13,10 @@ nav a {
   text-decoration: none;
 }
 
+.navbar{
+  background-color: black;
+}
+
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
@@ -40,6 +44,7 @@ nav a {
   color: black;
   font-weight: bold;
 }
+
 
 @media (min-width: 768px) {
   .jumbotron {
@@ -371,6 +376,7 @@ p.float-end a {
 #footerLogin{
   bottom: 0;
 }
+
 /*/////////////////*/
 
 #user-display {
@@ -409,8 +415,6 @@ p.float-end a {
   #filtrosPrecio #clearRangeFilter{
     margin-left: 20px;
   }
-
-
 
 
   .rating {
@@ -536,3 +540,17 @@ margin-left: 380px;
   vertical-align: -0.125em;
   fill: currentcolor;
 }
+
+.btn-dark{
+  border-color: #f7931e;
+}
+
+.btn-dark:hover{
+  background-color: #f7931e;
+}
+
+.btn-light{
+  border-color: lightgray;
+}
+
+/*/////////////////*/
