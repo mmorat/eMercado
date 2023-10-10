@@ -52,13 +52,13 @@
       switchBackgroundClasses('bg-light', 'bg-dark');
       switchBackgroundClasses('btn-light', 'btn-dark');
       if (window.location.pathname.endsWith('index.html')){
-        document.querySelector('.jumbotron').style.backgroundImage = 'url("/img/cover_back_dark.png")';
+        document.querySelector('.jumbotron').style.backgroundImage = 'url(img/cover_back_dark.png)';
       }   
     } else if (tema === 'light'){
       switchBackgroundClasses('bg-dark', 'bg-light');
       switchBackgroundClasses('btn-dark', 'btn-light');
       if (window.location.pathname.endsWith('index.html')){
-        document.querySelector('.jumbotron').style.backgroundImage = 'url("/img/cover_back.png")';
+        document.querySelector('.jumbotron').style.backgroundImage = 'url(img/cover_back.png)';
       }   
     };
   }
@@ -73,7 +73,7 @@
     switchBackgroundClasses('bg-dark', 'bg-light');
     switchBackgroundClasses('btn-dark', 'btn-light');
     if (window.location.pathname.endsWith('index.html')){
-      document.querySelector('.jumbotron').style.backgroundImage = 'url("/img/cover_back.png")';
+      document.querySelector('.jumbotron').style.backgroundImage = 'url(img/cover_back.png)';
     }   
   });
 
@@ -82,7 +82,7 @@
     switchBackgroundClasses('bg-light', 'bg-dark');
     switchBackgroundClasses('btn-light', 'btn-dark');
     if (window.location.pathname.endsWith('index.html')){
-      document.querySelector('.jumbotron').style.backgroundImage = 'url("/img/cover_back_dark.png")';
+      document.querySelector('.jumbotron').style.backgroundImage = 'url(img/cover_back_dark.png)';
     } 
   });
 
