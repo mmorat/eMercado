@@ -28,8 +28,11 @@
   }
 
   setTheme(getPreferredTheme());
-
-  const tema = getPreferredTheme();
+ 
+ function getTheme(){
+    const htmlElement = document.querySelector('html');
+    return htmlElement.getAttribute('data-bs-theme');
+    }
 
 
   const switchBackgroundClasses = (fromClass, toClass) => {
@@ -41,16 +44,26 @@
     });
   };
 
-  if (tema === 'dark') {
-    switchBackgroundClasses('bg-light', 'bg-dark');
-    switchBackgroundClasses('btn-light', 'btn-dark');
-    document.querySelector('.jumbotron').style.backgroundImage = 'url("../img/cover_back_dark.png")';
+  function darkmodeDinamico() {
     
-  } else if (tema === 'light'){
-    switchBackgroundClasses('bg-dark', 'bg-light');
-    switchBackgroundClasses('btn-dark', 'btn-light');
-    document.querySelector('.jumbotron').style.backgroundImage = 'url("../img/cover_back.png")';
-  };
+    const tema = getTheme();
+  
+    if (tema === 'dark') {
+      switchBackgroundClasses('bg-light', 'bg-dark');
+      switchBackgroundClasses('btn-light', 'btn-dark');
+      if (window.location.pathname.endsWith('index.html')){
+        document.querySelector('.jumbotron').style.backgroundImage = 'url("/img/cover_back_dark.png")';
+      }   
+    } else if (tema === 'light'){
+      switchBackgroundClasses('bg-dark', 'bg-light');
+      switchBackgroundClasses('btn-dark', 'btn-light');
+      if (window.location.pathname.endsWith('index.html')){
+        document.querySelector('.jumbotron').style.backgroundImage = 'url("/img/cover_back.png")';
+      }   
+    };
+  }
+
+
 
   const btnL = document.getElementById("btn-light");
   const btnD = document.getElementById("btn-dark");
@@ -59,14 +72,18 @@
     e.stopPropagation();
     switchBackgroundClasses('bg-dark', 'bg-light');
     switchBackgroundClasses('btn-dark', 'btn-light');
-    document.querySelector('.jumbotron').style.backgroundImage = 'url("../img/cover_back.png")';
+    if (window.location.pathname.endsWith('index.html')){
+      document.querySelector('.jumbotron').style.backgroundImage = 'url("/img/cover_back.png")';
+    }   
   });
 
   btnD.addEventListener("click", (e) => {
     e.stopPropagation();
     switchBackgroundClasses('bg-light', 'bg-dark');
     switchBackgroundClasses('btn-light', 'btn-dark');
-    document.querySelector('.jumbotron').style.backgroundImage = 'url("../img/cover_back_dark.png")';
+    if (window.location.pathname.endsWith('index.html')){
+      document.querySelector('.jumbotron').style.backgroundImage = 'url("/img/cover_back_dark.png")';
+    } 
   });
 
 
@@ -77,11 +94,11 @@
       return
     }
 
-    const themeSwitcherText = document.querySelector('#bd-theme-text')
-    const activeThemeIcon = document.querySelector('.theme-icon-active use')
-    const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
-    const svgOfActiveBtn = btnToActive.querySelector('svg use').getAttribute('href')
-
+    const themeSwitcherText = document.querySelector('#bd-theme-text');
+    const activeThemeIcon = document.querySelector('.theme-icon-active use');
+    const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`);
+    const svgOfActiveBtn = btnToActive.querySelector('svg use').getAttribute('href');
+    
     document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
       element.classList.remove('active')
       element.setAttribute('aria-pressed', 'false')
@@ -114,6 +131,7 @@
 
   window.addEventListener('DOMContentLoaded', () => {
     showActiveTheme(getPreferredTheme())
+    darkmodeDinamico();
 
     document.querySelectorAll('[data-bs-theme-value]')
       .forEach(toggle => {

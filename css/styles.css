@@ -219,6 +219,7 @@ img{
 
 .producto:hover{
   background-color: rgb(246, 246, 246);
+  cursor: pointer;
 }
 
 .sold-count {
@@ -230,7 +231,6 @@ img{
   padding: 5px;
   border: 1px solid lightgray;
   border-radius: 5%;
-  color: rgb(66, 66, 66);
   margin: 0px 2px;
 }
 
@@ -542,15 +542,28 @@ margin-left: 380px;
 }
 
 .btn-dark{
-  border-color: #f7931e;
+  border-color: #f7931e !important;
 }
 
 .btn-dark:hover{
-  background-color: #f7931e;
+  background-color: #f7931e !important;
 }
 
 .btn-light{
   border-color: lightgray;
+}
+
+.bg-dark div img{
+  background-color: rgb(33,37,41) !important;
+  border-color: gray;
+}
+
+.producto.bg-dark:hover{
+  background-color: rgb(43, 48, 53) !important;
+}
+
+.bg-dark input, .bg-dark textarea, .bg-dark div, .bg-dark select{
+  color: #fff !important;
 }
 
 /*/////////////////*/

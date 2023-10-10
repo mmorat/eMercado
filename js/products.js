@@ -24,10 +24,30 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  function getTheme(){
+    const htmlElement = document.querySelector('html');
+    return htmlElement.getAttribute('data-bs-theme');
+    }
+
+
+  function bgClass(item) {
+    
+    const tema = getTheme();
+  
+    if (tema === 'dark') {
+      return item.classList.add("bg-dark");
+    } else if (tema === 'light'){
+      return item.classList.add("bg-light");
+      }   
+    };
+
+
   function mostrarProducts(products) {
     products.forEach((product) => {
       const item = document.createElement("div");
       item.classList.add("producto");
+
+      bgClass(item);
 
       const img = document.createElement("img");
       img.src = product.image;
@@ -44,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       item.appendChild(document.createTextNode(product.description));
 
+
       lista.appendChild(item);
     });
   }
@@ -57,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
       data.products.forEach((product) => {
         const item = document.createElement("div");
         item.classList.add("producto");
+        bgClass(item);
 
         const img = document.createElement("img");
         img.src = product.image;
@@ -81,6 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
         // fin cambios A.R.
         item.appendChild(document.createTextNode(product.description));
+
 
         lista.appendChild(item);
       });
