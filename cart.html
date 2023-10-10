@@ -92,28 +92,57 @@
       </div>
      </div>
   </nav>
-  <main>
-    <h1>Carrito de Compras</h1>
+  <main class="pb-5 container bg-light">
+    <div class="text-center p-4 bg-light">
+      <h2>Carrito de Compras</h2>
+      <div id="divCart">
+        <h3>Artículos a comprar</h3>
+        <table id="cart">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Nombre</th>
+              <th>Costo</th>
+              <th>Cantidad</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td >Total:</td>
+              <td id="total"></td>
+            </tr>
+          </tfoot>
+          <tbody>
+          </tbody>
+          
+        </table>
+      </div>
+     </div>
+    
+      </div>
+        
 
-    <table id="cart">
-      <thead>
-        <tr>
-          <th>img</th>
-          <th>Nombre</th>
-          <th>Costo</th>
-          <th>Cantidad</th>
-          <th>Subtotal</th>
-        </tr>
-      </thead>
-      <tfoot>
-        <tr>
-          <td>foot1</td>
-        </tr>
-      </tfoot>
-      <tbody>
-      </tbody>
-      
-    </table>
+
+
+  </main>
+  <footer class="text-muted bg-light">
+    <div class="container">
+      <p class="float-end">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+    </div>
+  </footer>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+    </div>
+  </div>
+
+
 
 
 
