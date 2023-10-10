@@ -1,28 +1,38 @@
+const baseURL = "https://japceibal.github.io/emercado-api/user_cart/";
 const userID = 25801; // ID de usuario específico
-const quantityInput = document.getElementById('quantity');
-const productName = document.getElementById('productName');
-const productPrice = document.getElementById('productPrice');
-const subtotal = document.getElementById('subtotal');
-const productImage = document.querySelector('.table img');
+const URL = baseURL + userID + ".json";
+const cart = document.getElementById("cart");
 
-// Realiza una solicitud a la API utilizando fetch
-fetch('https://japceibal.github.io/emercado-api/cats_products/101.json')
+
+fetch(URL)
     .then(response => response.json())
     .then(data => {
-        const product = data.products[0]; // Obtiene el primer producto
+        data.articles.forEach((product) => {
+            const subtotal = product.unitCost * product.count;
+            const articulo = document.createElement("tr");
+            articulo.innerHTML = `
+            <td>
+                <img src="${product.image}">
+            </td>
+            <td>
+                <p>${product.name}</p>
+            </td>
+            <td>
+                ${product.currency}$ ${product.unitCost}
+            </td>
+            <td>
+                <input name="cantidad" type="number" value="${product.count}" min="0" max="10">
+            </td>
+            <td>
+                ${product.currency}$ ${subtotal.toFixed(2)}
+            </td>
+            `
 
-        productImage.src = product.image;
-        productName.textContent = product.name;
-        productPrice.textContent = product.cost;
+            cart.appendChild(articulo);
+        })
 
-        // Actualizar el subtotal cuando cambia la cantidad
-        quantityInput.addEventListener('input', () => {
-            const cantidad = parseInt(quantityInput.value);
-            const subtotalValue = cantidad * product.cost;
-            subtotal.textContent = subtotalValue;
-        });
     })
-    .catch(error => console.error('Error al obtener los datos de la API:', error));
+    .catch(error => console.error('Error al obtener los datos del carrito:', error));
   
   
   

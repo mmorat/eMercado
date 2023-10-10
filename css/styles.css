@@ -554,3 +554,21 @@ margin-left: 380px;
 }
 
 /*/////////////////*/
+
+/*Carrito*/
+
+table#cart{
+  align-items: center;
+  border: 5px solid black;
+}
+
+table#cart td, table#cart tr, table#cart th{
+  border: 1px solid black;
+  padding: 10px;
+}
+
+table#cart img{
+  width: 150px;
+}
+
+/*/////////////////*/
