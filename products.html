@@ -34,55 +34,42 @@
             <ul class="dropdown-menu" aria-labelledby="userDropdown">
               <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
               <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-              <li>
-                <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center"
-                  id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static"
-                  aria-label="Toggle theme (auto)">
-                  <svg class="bi my-1 theme-icon-active">
-                    <use href="#circle-half"></use>
-                  </svg>
-                  <span class="d-lg-none ms-2" id="bd-theme-text">Toggle theme</span>
+              <li id="logout"><a class="dropdown-item" href="login.html">Cerrar sesión</a></li>
+                <li class="nav-item dropdown">
+                  <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center"
+                          id="bd-theme"
+                          type="button"
+                          aria-expanded="false"
+                          data-bs-toggle="dropdown"
+                          data-bs-display="static"
+                          aria-label="Toggle theme (auto)">
+                    <svg class="bi my-1 theme-icon-active"><use href="#circle-half"></use></svg>
+                    <span class="d-lg-none ms-2" id="bd-theme-text">Toggle theme</span>
+                  </button>
                   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text">
                     <li>
-                      <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
-                        aria-pressed="false">
-                        <svg class="bi me-2 opacity-50 theme-icon">
-                          <use href="#sun-fill"></use>
-                        </svg>
+                      <button id="btn-light" type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+                        <svg class="bi me-2 opacity-50 theme-icon"><use href="#sun-fill"></use></svg>
                         Light
-                        <svg class="bi ms-auto d-none">
-                          <use href="#check2"></use>
-                        </svg>
+                        <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
                       </button>
                     </li>
                     <li>
-                      <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
-                        aria-pressed="false">
-                        <svg class="bi me-2 opacity-50 theme-icon">
-                          <use href="#moon-stars-fill"></use>
-                        </svg>
+                      <button id="btn-dark" type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+                        <svg class="bi me-2 opacity-50 theme-icon"><use href="#moon-stars-fill"></use></svg>
                         Dark
-                        <svg class="bi ms-auto d-none">
-                          <use href="#check2"></use>
-                        </svg>
+                        <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
                       </button>
                     </li>
                     <li>
-                      <button type="button" class="dropdown-item d-flex align-items-center active"
-                        data-bs-theme-value="auto" aria-pressed="true">
-                        <svg class="bi me-2 opacity-50 theme-icon">
-                          <use href="#circle-half"></use>
-                        </svg>
+                      <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+                        <svg class="bi me-2 opacity-50 theme-icon"><use href="#circle-half"></use></svg>
                         Auto
-                        <svg class="bi ms-auto d-none">
-                          <use href="#check2"></use>
-                        </svg>
+                        <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
                       </button>
                     </li>
-                    <li id="logout"><a class="dropdown-item" href="login.html">Cerrar sesión</a></li>
                   </ul>
-                </button>
-              </li>
+                </li>
             </ul>
           </li>
         </ul>
@@ -98,9 +85,9 @@
       <div class="row bg-light">
         <div class="col text-end">
           <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
-            <button class="boton" type="button" id="sortAsc">$▲</button>
-            <button class="boton" type="button" id="sortDesc">$▼</button>
-            <button class="boton" type="button" id="sortBySold">Relevancia★</button>
+            <button class="boton btn-light" type="button" id="sortAsc">$▲</button>
+            <button class="boton btn-light" type="button" id="sortDesc">$▼</button>
+            <button class="boton btn-light" type="button" id="sortBySold">Relevancia★</button>
           </div>
         </div>
       </div>
@@ -117,15 +104,15 @@
               <p class="font-weight-normal text-end my-2">Precio</p>
             </div>
             <div class="col">
-              <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
+              <input class="form-control bg-light" type="number" placeholder="min." id="rangeFilterCountMin">
             </div>
             <div class="col">
-              <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
+              <input class="form-control bg-light" type="number" placeholder="máx." id="rangeFilterCountMax">
             </div>
-            <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button> 
+            <button class="btn  btn-block btn-light" id="rangeFilterCount">Filtrar</button> 
             <div class="col-3 p-0">
               <div class="btn-group" role="group">
-                <button class="btn btn-light btn-block" id="clearSearchInput">Limpiar</button>
+                <button class="btn  btn-block btn-light" id="clearSearchInput">Limpiar</button>
               </div>
             </div>
           </div>
