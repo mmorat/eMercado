@@ -9,10 +9,10 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <link href="estilocart.css" rel="stylesheet">
+  <!-- <link href="estilocart.css" rel="stylesheet"> -->
 </head>
 
-<body>
+<body class="bg-light">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -92,30 +92,59 @@
       </div>
      </div>
   </nav>
-  <main>
-    <h1>Carrito de Compras</h1>
+  <main class="pb-5 container bg-light">
+    <div class="text-center p-4 bg-light">
+      <h2>Carrito de Compras</h2>
+      <div id="divCart">
+        <h3>Artículos a comprar</h3>
+        <table id="cart">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Nombre</th>
+              <th>Costo</th>
+              <th>Cantidad</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td >Total:</td>
+              <td id="total"></td>
+            </tr>
+          </tfoot>
+          <tbody>
+          </tbody>
+          
+        </table>
+      </div>
+     </div>
+    
+      </div>
+        
 
-    <div class="table">
-        <div>
-            <img src="img/prod50921_1.jpg" alt="Producto">
-        </div>
-        <div>
-            <p class="label">Nombre:</p>
-            <p id="productName">Cargando...</p>
-        </div>
-        <div>
-            <p class="label">Costo:</p>
-            <p>$<span id="productPrice">0</span> USD</p>
-        </div>
-        <div>
-            <p class="label">Cantidad:</p>
-            <input type="number" id="quantity" value="1" min="1" max="10">
-        </div>
-        <div>
-            <p class="label">Subtotal:</p>
-            <p>$<span id="subtotal">0</span> USD</p>
-        </div>
+
+
+  </main>
+  <footer class="text-muted bg-light">
+    <div class="container">
+      <p class="float-end">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
+  </footer>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+    </div>
+  </div>
+
+
+
+
 
 
   </main>
@@ -139,7 +168,7 @@
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/general.js"></script>
-  <script src="js/darkmode.js"></script>
+  <!-- <script src="js/darkmode.js"></script> -->
 </body>
 
 </html>
