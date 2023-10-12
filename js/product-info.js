@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // codigo sobre comentarios 
-
+  const username = sessionStorage.getItem("username") || localStorage.getItem("username");
   const containerComentarios = document.getElementById('comments-container');
   const formComentarios = document.getElementById('comment-form');
   let arrComentarios = [];
