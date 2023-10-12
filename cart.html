@@ -9,10 +9,12 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <!-- <link href="estilocart.css" rel="stylesheet"> -->
 </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark p-1">
+
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,12 +80,61 @@
       </div>
      </div>
   </nav>
-  <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+  <main class="pb-5 container bg-light">
+    <div class="text-center p-4 bg-light">
+      <h2>Carrito de Compras</h2>
+      <div id="divCart">
+        <h3>Artículos a comprar</h3>
+        <table id="cart">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Nombre</th>
+              <th>Costo</th>
+              <th>Cantidad</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td >Total:</td>
+              <td id="total"></td>
+            </tr>
+          </tfoot>
+          <tbody>
+          </tbody>
+          
+        </table>
       </div>
+     </div>
+    
+      </div>
+        
+
+
+
+  </main>
+  <footer class="text-muted bg-light">
+    <div class="container">
+      <p class="float-end">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
+  </footer>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+    </div>
+  </div>
+
+
+
+
+
+
   </main>
   <footer class="text-muted bg-light">
     <div class="container">
