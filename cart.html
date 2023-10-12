@@ -124,6 +124,35 @@
         </table>
       </div>
      </div>
+     <div><H3>Tipo de envío</H3>
+      <input type="radio" name="envio" value="opcion1">Premium de 2 a 5 días (15%) <br>
+      <input type="radio" name="envio" value="opcion2"> Express 5 a 8 días (7%) <br>
+      <input type="radio" name="envio" value="opcion3"> Standard 12 a 15 días (5%)</div><br>
+  
+      <h3>Dirección de envio</h3>
+      <form>
+        <div class="container text - left">
+          <div class="row">
+            <div class="col-6 col-sm-4">
+              <label for="calleEnvio">Calle</label><br>
+              <input type="text" id="calleEnvio" value="">
+            </div>
+            <div class="col-6 col-sm-4">
+          <label for="numeroEnvio">Numero</label><br>
+          <input type="number" id="Numero" value="">
+            </div>
+            <!-- Force next columns to break to new line at md breakpoint and up -->
+            <div class="w-100 d-none d-md-block"></div>
+            <div class="col-6 col-sm-4">
+              <label for="esquinaEnvio">Esquina</label><br>
+              <input type="text" id="esquinaEnvio" value="">
+            </div>
+          </div>
+        </div>
+        <label for="enviarEnvio"></label>
+        <input type="submit" id="enviarEnvio" value="Enviar">
+      </form>
+        </div>
     
       </div>
         
