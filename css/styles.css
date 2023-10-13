@@ -678,5 +678,8 @@ table#cart tfoot{
   color: #fff !important;
 }
 
-/*/////////////////*/
-
+/* Boton comprar */
+#comprar {
+  float:right;
+  margin: 5vh;
+}
