@@ -599,6 +599,72 @@ margin-left: 380px;
   border-color: lightgray;
 }
 
+
+/*/////////////////*/
+
+/*Carrito*/
+#divCart{
+text-align: left;
+margin-top: 50px;
+margin-bottom: 15px;
+}
+
+
+
+table#cart{
+  align-items: center;
+  justify-content: center;
+
+}
+
+table#cart input{
+  width: 44px;
+  text-align: right;
+  margin-left: 15% ;
+}
+
+table#cart input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  margin-left: 5px; 
+  background-color: transparent;
+  opacity: 1;
+}
+
+table#cart thead{
+  text-align: center;
+  border-bottom: 3px solid black;
+}
+
+table#cart td, table#cart tr, table#cart th{
+  border-bottom: 2px solid black;
+  padding: 10px;
+  width:fit-content
+}
+
+
+table#cart p{
+  margin: 0px;
+}
+
+table#cart .td5{
+  font-weight: bold;
+}
+
+table#cart img{
+  width: 70px;
+}
+
+table#cart tfoot{
+  background-color: rgba(179, 179, 179, 0.593);
+  border-top: 1px solid black;
+  padding: 10px;
+  font-weight: bold;
+}
+
+
+
+/*/////////////////*/
+
 .bg-dark div img{
   background-color: rgb(33,37,41) !important;
   border-color: gray;
@@ -613,3 +679,4 @@ margin-left: 380px;
 }
 
 /*/////////////////*/
+
