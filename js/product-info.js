@@ -162,5 +162,18 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
+  const btnComprar = document.getElementById("comprar");
+
+  btnComprar.addEventListener("click", (e) => {
+    // Recuperar el arreglo de productos del localStorage
+    let cartProds = JSON.parse(localStorage.getItem("cartProducts")) || [];
+  
+    // Agregar el producto seleccionado al arreglo
+    cartProds.push(selectedProductId);
+  
+    // Almacenar el arreglo actualizado en el localStorage
+    localStorage.setItem("cartProducts", JSON.stringify(cartProds));
+  });
+  
 
 })
