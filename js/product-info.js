@@ -10,44 +10,87 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((product) => {
         // Actualiza el contenido de la página con la información del producto
 
+        const cont = document.getElementById("infoCont");
+        const cont2 = document.getElementById("prodRelacionados");
 
         const productContainer = document.createElement("div");
-        productContainer.setAttribute("id", "showInfo");
-        productContainer.classList.add("container");
         let arrayImagen = product.images;
 
-        productContainer.innerHTML = `
-      <h1>${product.name}</h1>
+        const h1 = document.createElement("h1");
+        h1.textContent = product.name;
+        cont.appendChild(h1);
 
-        <div id="infoProd">
-            <h4>Categoría:</h4>
-            <p>${product.category} </p>
-            
-            <h4>Cantidad de unidades vendidas:</h4>
-            <p>${product.soldCount}</p>
-        
-            <h4>Precio</h4>
-            <p> ${product.currency} $${product.cost}</p>
-        
-            <h4>Descripción</h4>
-            <p> ${product.description}</p>
-        </div>
-        </div>
-        
-          <h4>Productos Relacionados</h4>
-          <div id="relProducts">
-              <div id="relProd0">
-                  <img src="${product.relatedProducts[0].image}">
-                  <h5> ${product.relatedProducts[0].name}</h5>
-              </div>
-              <div id="relProd1">
-                  <img src="${product.relatedProducts[1].image}">
-                  <h5> ${product.relatedProducts[1].name}</h5>
-              </div>
-          </div>
-      </div>
-      `;
+        const div = document.createElement("div");
+        div.setAttribute("id", "infProd");
 
+        const categoria = document.createElement("h4");
+        categoria.textContent = "Categoría:";
+        div.appendChild(categoria);
+        const pCategoria = document.createElement("p");
+        pCategoria.textContent = product.category;
+        div.appendChild(pCategoria);
+
+        const unidades = document.createElement("h4");
+        unidades.textContent = "Cantidad de unidades vendidas:";
+        div.appendChild(unidades);
+        const pUnidades = document.createElement("p");
+        pUnidades.textContent = product.soldCount;
+        div.appendChild(pUnidades);
+        
+        const precio = document.createElement("h4");
+        precio.textContent = "Precio:";
+        div.appendChild(precio);
+        const pPrecio = document.createElement("p");
+        pPrecio.textContent = `${product.currency} $${product.cost}`;
+        div.appendChild(pPrecio);
+
+        const descripcion = document.createElement("h4");
+        descripcion.textContent = "Descripición:";
+        div.appendChild(descripcion);
+        const pDescripcion = document.createElement("p");
+        pDescripcion.textContent = product.description;
+        div.appendChild(pDescripcion);
+
+        cont.appendChild(div);
+
+        
+        const div2 = document.createElement("div");
+        div2.setAttribute("id", "relProducts");
+        
+        const prodRel = document.createElement("h4");
+        prodRel.textContent = "Productos Relacionados:";
+        cont2.appendChild(prodRel);
+
+        const divRel0 = document.createElement("div");
+        divRel0.setAttribute("id", "relProd0");
+        divRel0.classList.add("bg-light");
+
+        const img0 = document.createElement("img");
+        img0.src = product.relatedProducts[0].image;
+        divRel0.appendChild(img0);
+
+        const h50 = document.createElement("h5");
+        h50.textContent = product.relatedProducts[0].name;
+        divRel0.appendChild(h50);
+
+        div2.appendChild(divRel0);
+
+        const divRel1 = document.createElement("div");
+        divRel1.setAttribute("id", "relProd1");
+        divRel1.classList.add("bg-light");
+
+        const img1 = document.createElement("img");
+        img1.src = product.relatedProducts[1].image;
+        divRel1.appendChild(img1);
+
+        const h51 = document.createElement("h5");
+        h51.textContent = product.relatedProducts[1].name;
+        divRel1.appendChild(h51);
+
+        div2.appendChild(divRel1);
+
+        cont2.appendChild(div2);
+      
         const carruInner = document.getElementById("carousel-inner");
 
         for (let index = 0; index < arrayImagen.length; index++) {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,6 +10,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
 </head>
+
 <body class="bg-light">
   <nav class="navbar navbar-expand-lg navbar-dark p-1">
     <div class="container">
@@ -28,53 +30,67 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item dropdown"> <!-- Agregamos una lista desplegable -->
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
               <span id="user-display"></span> <!-- Nombre de usuario aquí -->
             </a>
             <ul class="dropdown-menu" aria-labelledby="userDropdown">
               <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
               <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
               <li id="logout"><a class="dropdown-item" href="login.html">Cerrar sesión</a></li>
-                <li class="nav-item dropdown">
-                  <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center"
-                          id="bd-theme"
-                          type="button"
-                          aria-expanded="false"
-                          data-bs-toggle="dropdown"
-                          data-bs-display="static"
-                          aria-label="Toggle theme (auto)">
-                    <svg class="bi my-1 theme-icon-active"><use href="#circle-half"></use></svg>
-                    <span class="d-lg-none ms-2" id="bd-theme-text">Toggle theme</span>
-                  </button>
-                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text">
-                    <li>
-                      <button id="btn-light" type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-                        <svg class="bi me-2 opacity-50 theme-icon"><use href="#sun-fill"></use></svg>
-                        Light
-                        <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
-                      </button>
-                    </li>
-                    <li>
-                      <button id="btn-dark" type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-                        <svg class="bi me-2 opacity-50 theme-icon"><use href="#moon-stars-fill"></use></svg>
-                        Dark
-                        <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
-                      </button>
-                    </li>
-                    <li>
-                      <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
-                        <svg class="bi me-2 opacity-50 theme-icon"><use href="#circle-half"></use></svg>
-                        Auto
-                        <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
-                      </button>
-                    </li>
-                  </ul>
-                </li>
+              <li class="nav-item dropdown">
+                <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center"
+                  id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static"
+                  aria-label="Toggle theme (auto)">
+                  <svg class="bi my-1 theme-icon-active">
+                    <use href="#circle-half"></use>
+                  </svg>
+                  <span class="d-lg-none ms-2" id="bd-theme-text">Toggle theme</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text">
+                  <li>
+                    <button id="btn-light" type="button" class="dropdown-item d-flex align-items-center"
+                      data-bs-theme-value="light" aria-pressed="false">
+                      <svg class="bi me-2 opacity-50 theme-icon">
+                        <use href="#sun-fill"></use>
+                      </svg>
+                      Light
+                      <svg class="bi ms-auto d-none">
+                        <use href="#check2"></use>
+                      </svg>
+                    </button>
+                  </li>
+                  <li>
+                    <button id="btn-dark" type="button" class="dropdown-item d-flex align-items-center"
+                      data-bs-theme-value="dark" aria-pressed="false">
+                      <svg class="bi me-2 opacity-50 theme-icon">
+                        <use href="#moon-stars-fill"></use>
+                      </svg>
+                      Dark
+                      <svg class="bi ms-auto d-none">
+                        <use href="#check2"></use>
+                      </svg>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center active"
+                      data-bs-theme-value="auto" aria-pressed="true">
+                      <svg class="bi me-2 opacity-50 theme-icon">
+                        <use href="#circle-half"></use>
+                      </svg>
+                      Auto
+                      <svg class="bi ms-auto d-none">
+                        <use href="#check2"></use>
+                      </svg>
+                    </button>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </li>
         </ul>
       </div>
-     </div>
+    </div>
   </nav>
   <main class="pb-5 container bg-light">
     <div class="text-center p-4 bg-light">
@@ -93,45 +109,46 @@
       </div>
       <div class="row">
         <div id="prueba">
-         <input class="form-control bg-light" type="search" placeholder="Busca un producto..." id="searchInput">
-         <div class="col-3 p-0">
+          <input class="form-control bg-light" type="search" placeholder="Busca un producto..." id="searchInput">
+          <div class="col-3 p-0">
 
-         </div>
-         <div class="row container p-0 m-0">
-         
-          <div id="filtrosPrecio">
-            <div class="col">
-              <p class="font-weight-normal text-end my-2">Precio</p>
-            </div>
-            <div class="col">
-              <input class="form-control bg-light" type="number" placeholder="min." id="rangeFilterCountMin">
-            </div>
-            <div class="col">
-              <input class="form-control bg-light" type="number" placeholder="máx." id="rangeFilterCountMax">
-            </div>
-            <button class="btn  btn-block btn-light" id="rangeFilterCount">Filtrar</button> 
-            <div class="col-3 p-0">
-              <div class="btn-group" role="group">
-                <button class="btn  btn-block btn-light" id="clearSearchInput">Limpiar</button>
+          </div>
+          <div class="row container p-0 m-0">
+
+            <div id="filtrosPrecio">
+              <div class="col">
+                <p class="font-weight-normal text-end my-2">Precio</p>
+              </div>
+              <div class="col">
+                <input class="form-control bg-light" type="number" placeholder="min." id="rangeFilterCountMin">
+              </div>
+              <div class="col">
+                <input class="form-control bg-light" type="number" placeholder="máx." id="rangeFilterCountMax">
+              </div>
+              <button class="btn  btn-block btn-light" id="rangeFilterCount">Filtrar</button>
+              <div class="col-3 p-0">
+                <div class="btn-group" role="group">
+                  <button class="btn  btn-block btn-light" id="clearSearchInput">Limpiar</button>
+                </div>
               </div>
             </div>
+
           </div>
-          
-          </div>
-      </div>
+        </div>
         <div class="col-lg-6 offset-lg-6 col-md-12 mb-1 container">
-      </div>
+        </div>
 
 
-    <div class="row" id="showProd">
-    </div>
+        <div class="row" id="showProd">
+        </div>
   </main>
   <footer class="text-muted bg-light">
     <div class="container">
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+      </p>
     </div>
   </footer>
   <div id="spinner-wrapper">
@@ -144,4 +161,5 @@
   <script src="js/general.js"></script>
   <script src="js/darkmode.js"></script>
 </body>
+
 </html>

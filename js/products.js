@@ -52,14 +52,16 @@ document.addEventListener("DOMContentLoaded", function () {
       const img = document.createElement("img");
       img.src = product.image;
       item.appendChild(img);
-
+      
       const soldCountDiv = document.createElement("div");
       soldCountDiv.classList.add("sold-count");
       soldCountDiv.textContent = `${product.soldCount} vendidos`;
       item.appendChild(soldCountDiv);
 
       const h4 = document.createElement("h4");
+      h4.classList.add("tituloh4");
       h4.textContent = `${product.name} - ${product.currency}$ ${product.cost}`;
+
       item.appendChild(h4);
 
       item.appendChild(document.createTextNode(product.description));
@@ -91,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const h4 = document.createElement("h4");
         h4.textContent = `${product.name} - ${product.currency}$ ${product.cost}`;
+        h4.classList.add("tituloh4");
         item.appendChild(h4);
 
          // Agregar un atributo data-id con el valor del ID del producto / cambios 13/09 A.R.
