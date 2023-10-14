@@ -93,7 +93,6 @@ fetch(URL)
             cartItems[id].quantity++;
           }
     
-          // Actualizamos el subtotal y creamos los elementos HTML
           updateCart();
         })
         .catch(error => console.error('Error al obtener los datos del carrito:', error));
