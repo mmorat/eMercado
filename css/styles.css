@@ -15,6 +15,7 @@ nav a {
 
 .navbar{
   background-color: black;
+  font-size: x-large;
 }
 
 .bd-placeholder-img {
@@ -434,6 +435,10 @@ p.float-end a {
   margin-left: 10%;
 }
 
+#comments-container {
+  font-size: large;
+}
+
 #submitboton {
 position: relative;
 top: 0.5cqmax;
@@ -507,6 +512,7 @@ margin-left: 380px;
     display: flex;
     flex-flow:wrap;
   }
+
 }
 
 @media screen and (max-width: 425px) {
@@ -519,7 +525,7 @@ margin-left: 380px;
 
 /* gral */
 #bodys{
-  margin: 5vh;
+  margin: 2vh;
   display: grid;
   grid-template-columns: 1fr 1fr; /* Divide el contenedor en dos columnas iguales */
   gap: 10px; /* Espacio entre las columnas */
@@ -530,12 +536,12 @@ margin-left: 380px;
   display: flex;
   flex-direction: column;
   margin-top: 11vh;
-  font-size: 2vh;
+  font-size: x-large;
 }
 
 #infoCont h4{
   margin-top: 15px;
-  font-size: 2vh;
+  font-size: xx-large;
 }
 
 
@@ -551,17 +557,30 @@ margin-left: 380px;
   margin-left: 10vh;
 }
 
+@media screen and (max-width: 1900px) {
+  #infoCont{
+    font-size: large;
+  }
+  
+  #infoCont h4{
+    font-size: x-large;
+  }
+  }
+
 @media screen and (max-width: 1500px) {
-   #bodys{
-    display:flex;
-    flex-direction: column;
+  .navbar{
+    background-color: black;
+    font-size: large;
+  }
+  #comments-container {
+    font-size: medium;
   }
   #submitboton{
     display: flex;
     margin-left:auto;
    }
    #infoDelProdu {
-    margin-left: auto;
+    margin-left: 5vh;
   }
   #relProducts {
     display:flex;
@@ -577,12 +596,34 @@ margin-left: 380px;
   #tituloComentayPuntua, #infoCont {
     margin-top: 5vh;
   }
+  #comprar {
+    margin-top: 0;
+    margin-bottom: 5vh;
+  }
+  #carousel-inner {
+    width: auto;
+  } 
 }
 
+@media screen and (max-width: 1050px) {
+#bodys{
+  display:flex;
+  flex-direction: column;
+}
+}
 
 @media screen and (max-width: 650px) {
   #relProducts img  {
     max-height: 15vh;
+  }
+  .rating {
+    float:none;
+    margin-bottom: 2%;
+    font-size: 24px;
+    color: rgb(216, 211, 211);
+}
+#submitboton {
+  margin-top: 2vh;
   }
 }
 
@@ -688,6 +729,7 @@ table#cart tfoot{
 
 /* Boton comprar */
 #comprar {
-  float:right;
-  margin: 5vh;
+  margin-top: 2vh;
+  margin-bottom: 5vh;
+  font-size: 2.5vh;
 }

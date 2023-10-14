@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
 
   btnComprar.addEventListener("click", (e) => {
-
+    e.stopPropagation();
     btnComprar.classList.remove("btn-primary")
     btnComprar.classList.add("btn-secondary")
     
