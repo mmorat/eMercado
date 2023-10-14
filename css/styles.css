@@ -247,10 +247,11 @@ img{
 body.login-page {
   background-color: rgb(248, 249, 250);
   display: flex;
+  margin-top: 3vh;
   justify-content: center;
   align-items: center;
+  max-width: 200vh;
   height: 100vh;
-  margin: 0;
 }
 
 .login-page img {
@@ -463,6 +464,7 @@ margin-left: 380px;
   display: flex;
   width: fit-content;
   margin-top: 3vh;
+  margin-right: 5vh;
 }
 
 #relProducts div{
@@ -479,7 +481,7 @@ margin-left: 380px;
 }
 
 #relProducts img{
-  max-height: 300px;
+  max-height: 215px;
   background-color: white;
 }
 
@@ -566,6 +568,12 @@ margin-left: 380px;
     flex-direction: column;
     max-height: inherit;
   }
+
+  #relProducts img{
+    max-height: 20vh;
+    background-color: white;
+  }
+
   #tituloComentayPuntua, #infoCont {
     margin-top: 5vh;
   }
