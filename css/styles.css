@@ -248,10 +248,11 @@ img{
 body.login-page {
   background-color: rgb(248, 249, 250);
   display: flex;
+  flex-direction: column;
   margin-top: 3vh;
   justify-content: center;
   align-items: center;
-  max-width: 200vh;
+  max-width: 100%;
   height: 100vh;
 }
 
@@ -499,27 +500,6 @@ margin-left: 380px;
   margin-left: 5px;
 }
 
-/* CATEGORIAS PAGE RESPONSIVE */
-@media screen and (max-width: 1000px) {
-  #prueba{
-    display:flex;
-    flex-direction: column;
-  }
-}
-
-@media screen and (max-width: 460px) {
-  .producto {
-    display: flex;
-    flex-flow:wrap;
-  }
-
-}
-
-@media screen and (max-width: 425px) {
-  .sold-count {
-    margin-right: 20px;
-  }
-}
 
 /* PRODUCT-INFO PAGE */
 
@@ -553,6 +533,31 @@ margin-left: 380px;
 #infoDelProdu {
   margin: 50px;
   margin-left: 10vh;
+}
+
+/* CATEGORIAS PAGE RESPONSIVE */
+@media screen and (max-width: 1000px) {
+  #prueba{
+    display:flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .producto {
+    display: flex;
+    flex-flow:wrap;
+  }
+
+}
+
+@media screen and (max-width: 425px) {
+  .sold-count {
+    margin-right: 20px;
+  }
+  #loginForm {
+    max-width: 35vh;
+  }
 }
 
 @media screen and (max-width: 1900px) {
