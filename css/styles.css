@@ -651,26 +651,30 @@ margin-left: 380px;
   border-color: lightgray;
 }
 
+.btn-light:hover{
+  background-color: lightgray;
+}
 
 /*/////////////////*/
 
 /*Carrito*/
+
 #divCart{
 text-align: left;
-margin-top: 50px;
 margin-bottom: 15px;
 }
 
-
+#cart th{
+  text-align: left;
+}
 
 table#cart{
   align-items: center;
   justify-content: center;
-
 }
 
 table#cart input{
-  width: 44px;
+  width: 3.5em;
   text-align: right;
   margin-left: 15% ;
 }
@@ -693,6 +697,9 @@ table#cart td, table#cart tr, table#cart th{
   width:fit-content
 }
 
+table.bg-dark{
+  color: #ffffff;
+}
 
 table#cart p{
   margin: 0px;
@@ -700,10 +707,13 @@ table#cart p{
 
 table#cart .td5{
   font-weight: bold;
+  text-align: right;
 }
 
 table#cart img{
-  width: 70px;
+  max-height: 70px;
+  width: auto;
+  padding: 1px;
 }
 
 table#cart tfoot{
@@ -712,6 +722,63 @@ table#cart tfoot{
   padding: 10px;
   font-weight: bold;
 }
+
+tfoot #totalTexto{
+  text-align: right;
+
+}
+
+/*/////////////////*/
+
+/*Envio*/
+
+#enviarEnvio{
+  padding: 5px 10px;
+  border: 1px solid lightgray;
+  border-radius: 7%;
+  margin-left: 10px;
+}
+
+#formEnvio input[type="text"]{
+  margin: 0px 10px 10px 10px;
+  width: 400px;
+}
+
+#formEnvio input[type="text"].bg-light, #formEnvio input[type="number"].bg-light{
+  background-color: #ffffff;
+}
+
+#formEnvio label{
+  margin-left: 10px;
+}
+
+#formEnvio input[type="number"]{
+  margin: 0px 10px 10px 10px;
+  width: 100px;
+}
+
+@media screen and (max-width: 400px) {
+   #formEnvio input[type="text"]{
+    width: 85vw;
+  }
+}
+
+#formEnvio input{
+  border-radius: 3px;
+}
+
+#listaCostos p{
+  color: gray;
+}
+
+#listaCostos.bg-dark li{
+  background-color: #222527 !important;
+  border-color: lightgray;
+
+}
+
+
+
 
 
 
