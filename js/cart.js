@@ -57,6 +57,26 @@ fetch(URL)
             td5.appendChild(p);
             articulo.appendChild(td5);
 
+            const td6 = document.createElement("td");
+            td6.classList.add("td6");
+            const button = document.createElement("button");
+            button.textContent = "Eliminar";
+            button.classList.add("btn", "btn-danger");
+            td6.appendChild(button);
+            articulo.appendChild(td6);
+
+            button.addEventListener("click", () => {
+               const index = arrayProd.indexOf(product.id);
+               if (index !== -1) {
+                   arrayProd.splice(index, 1);
+                   localStorage.setItem("cartProducts", JSON.stringify(arrayProd));
+               }
+
+               articulo.remove();
+
+                // Actualizar el subtotal y el total si es necesario
+            });
+
             cart.appendChild(articulo);
 
 
@@ -126,6 +146,27 @@ fetch(URL)
                 articulo.appendChild(td5);
     
                 cart.appendChild(articulo);
+
+                const td6 = document.createElement("td");
+                td6.classList.add("td6");
+                const button = document.createElement("button");
+                button.textContent = "Eliminar";
+                button.classList.add("btn", "btn-danger");
+                td6.appendChild(button);
+                articulo.appendChild(td6);
+
+                button.addEventListener("click", () => {
+                   const index = arrayProd.indexOf(product.id);
+                   if (index !== -1) {
+                       arrayProd.splice(index, 1);
+                       localStorage.setItem("cartProducts", JSON.stringify(arrayProd));
+                   }
+
+                   articulo.remove();
+
+                    // Actualizar el subtotal y el total si es necesario
+                });
+
     
     
                 input.addEventListener("input", (e)=>{
