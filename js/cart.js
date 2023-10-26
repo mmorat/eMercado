@@ -242,3 +242,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 });
+const creditCardOption = document.getElementById('creditCardOption');
+const bankTransferOption = document.getElementById('bankTransferOption');
+const accountNumberInput = document.getElementById('accountNumber');
+const cardNumberInput = document.getElementById('cardNumber');
+const securityCodeInput = document.getElementById('securityCode');
+const expirationDateInput = document.getElementById('expirationDate');
+
+// Agregar eventos de cambio a los elementos de radio
+creditCardOption.addEventListener('change', function () {
+  accountNumberInput.disabled = true; // Desactivar el campo "Número de Cuenta"
+  cardNumberInput.disabled = false; // Habilitar el campo "Número de Tarjeta"
+  securityCodeInput.disabled = false; // Habilitar el campo "Código de Seguridad"
+  expirationDateInput.disabled = false; // Habilitar el campo "Fecha de Vencimiento"
+});
+
+bankTransferOption.addEventListener('change', function () {
+  accountNumberInput.disabled = false; // Habilitar el campo "Número de Cuenta"
+  cardNumberInput.disabled = true; // Desactivar el campo "Número de Tarjeta"
+  securityCodeInput.disabled = true; // Desactivar el campo "Código de Seguridad"
+  expirationDateInput.disabled = true; // Desactivar el campo "Fecha de Vencimiento"
+});
