@@ -145,6 +145,25 @@ document.addEventListener("DOMContentLoaded", function () {
         td6.appendChild(pSubtotal);
         articulo.appendChild(td6);
 
+        const td7 = document.createElement("td");
+        td7.classList.add("td7");
+        const button = document.createElement("button");
+        button.textContent = "Eliminar";
+        button.classList.add("btn", "btn-danger");
+        td7.appendChild(button);
+        articulo.appendChild(td7);
+
+        button.addEventListener("click", () => {
+           const index = arrayProd.indexOf(product.id);
+           if (index !== -1) {
+               arrayProd.splice(index, 1);
+               localStorage.setItem("cartProducts", JSON.stringify(arrayProd));
+           }
+
+           articulo.remove();
+           actualizarTotal()
+        });
+
         cart.appendChild(articulo);
 
         actualizarTotal();
@@ -225,6 +244,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         td6.appendChild(pSubtotal);
         articulo.appendChild(td6);
+
+        const td7 = document.createElement("td");
+        td7.classList.add("td7");
+        const button = document.createElement("button");
+        button.textContent = "Eliminar";
+        button.classList.add("btn", "btn-danger");
+        td7.appendChild(button);
+        articulo.appendChild(td7);
+
+        button.addEventListener("click", () => {
+           const index = arrayProd.indexOf(product.id);
+           if (index !== -1) {
+               arrayProd.splice(index, 1);
+               localStorage.setItem("cartProducts", JSON.stringify(arrayProd));
+           }
+
+           articulo.remove();
+           actualizarTotal();
+        });
 
         cart.appendChild(articulo);
 

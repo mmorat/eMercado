@@ -725,7 +725,10 @@ table#cart tfoot{
 
 tfoot #totalTexto{
   text-align: right;
+}
 
+.td7 button {
+  background-color: rgb(248, 62, 62);
 }
 
 /*/////////////////*/
