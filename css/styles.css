@@ -736,10 +736,10 @@ tfoot #totalTexto{
 /*Envio*/
 
 #enviarEnvio{
-  padding: 5px 10px;
-  border: 1px solid lightgray;
+  border: 1px;
   border-radius: 7%;
-  margin-left: 10px;
+  margin-left: 30vh;
+  font-size: x-large;
 }
 
 #formEnvio input[type="text"]{

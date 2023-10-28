@@ -112,110 +112,140 @@
   </nav>
 
   <main class="pb-5 container bg-light">
-    
-    <div class="text-center p-4">
-      <h2>Carrito de Compras</h2>
-    </div>
-
-    <div>
-      <div class="text-center p-4 bg-light">
+    <form class="needs-validation" novalidate id="checkoutForm">
       
+      <div class="text-center p-4">
+        <h2>Carrito de Compras</h2>
+      </div>
+  
+      <div>
+        <div class="text-center p-4 bg-light">
+          <div id="divCart">
+            <h3>Artículos a comprar</h3>
+    
+            <table class="table bg-light" id="cart">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Nombre</th>
+                  <th>Costo</th>
+                  <th>Cantidad</th>
+                  <th></th>
+                  <th>Subtotal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Aquí puedes agregar filas de elementos del carrito si es necesario -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+       
+      <div>
+        <div>
+          <h3>Tipo de envío</h3>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="envio" id="premiumRadio" value="0.15" required>
+            <label class="form-check-label" for="premiumRadio">Premium - 2 a 5 días (15%)</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="envio" id="expressRadio" value="0.07" required>
+            <label class="form-check-label" for="expressRadio">Express - 5 a 8 días (7%)</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="envio" id="standardRadio" value="0.05" required>
+            <label class="form-check-label" for="standardRadio">Standard - 12 a 15 días (5%)</label>
+          </div>
+        </div>
         
-        <div id="divCart">
-          <h3>Artículos a comprar</h3>
-  
-          <table class="table bg-light" id="cart">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Nombre</th>
-                <th>Costo</th>
-                <th>Cantidad</th>
-                <th></th>
-                <th>Subtotal</th>
-              </tr>
-            </thead>
-            </tfoot>
-            <tbody>
-            </tbody>
-  
-          </table>
-  
-        </div>
-     </div> 
-     
-    <div>
-     <div>
-       <h3>Tipo de envío</h3>
-       <input type="radio" name="envio" value="0.15"> Premium - 2 a 5 días (15%) <br>
-       <input type="radio" name="envio" value="0.07"> Express - 5 a 8 días (7%) <br>
-       <input type="radio" name="envio" value="0.05"> Standard - 12 a 15 días (5%)
-     </div>
-    <br><br>
-     <h3>Dirección de envio</h3>
-     <form id="formEnvio">
-       <div id="divEnvio" class="container bg-light">
-           <div class="row">
-             <div class="col-4">
-               <label for="calleEnvio">Calle</label><br>
-               <input class="bg-light" type="text" id="calleEnvio">
-             </div>
-             <div class="col">
-               <label for="numero">Número</label><br>
-               <input class="bg-light" type="number" id="numero">
-             </div>
-           </div>
-           <div class="row">
-             <div class="col-4">
-               <label for="esquinaEnvio">Esquina</label><br>
-               <input class="bg-light" type="text" id="esquinaEnvio">
-             </div>
-           </div>
-         <input class="btn-light" type="submit" id="enviarEnvio" value="Enviar">
-       </div>
-     </form>
-     </div>
-     <br>
-    <h3>Costos</h3>
-     <ul id="listaCostos" class="list-group bg-light">
-      <li class="list-group-item">
-        <div class="d-flex justify-content-between">
-          <div>
-            <h5>Subtotal en USD</h5>
-            <p>Costo de todo el carrito antes del envío</p>
+        <br><br>
+        <h3>Dirección de envío</h3>
+        <div id="divEnvio" class="container bg-light">
+          <div class="row">
+            <div class="col-4">
+              <label for="calleEnvio">Calle</label>
+              <input class="form-control" type="text" id="calleEnvio" required>
+              <div class="invalid-feedback">
+                Por favor, ingresa tu calle.
+              </div>
+            </div>
+            <div class="col">
+              <label for="numero">Número</label>
+              <input class="form-control" type="number" id="numero" required>
+              <div class="invalid-feedback">
+                Por favor, ingresa el número.
+              </div>
+            </div>
           </div>
-          <div><h4 id="total"></h4></div>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="d-flex justify-content-between">
-          <div>
-            <h5>Envío</h5>
-            <p>Según el tipo de envío seleccionado</p>
+          <div class="row">
+            <div class="col-4">
+              <label for="esquinaEnvio">Esquina</label>
+              <input class="form-control" type="text" id="esquinaEnvio" required>
+              <div class="invalid-feedback">
+                Por favor, ingresa la esquina.
+              </div>
+            </div>
           </div>
-          
-          <div><h4 id="costoEnvio"></h4></div>
         </div>
-      </li>
-      <li class="list-group-item">
-        <div class="d-flex justify-content-between">
-          <div>
-            <h5>Total en USD</h5>
-            <p>Costo en USD con envío incluido</p>
+      </div>
+       
+      <br>
+      
+      <h3>Costos</h3>
+      <ul id="listaCostos" class="list-group bg-light">
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between">
+            <div>
+              <h5>Subtotal en USD</h5>
+              <p>Costo de todo el carrito antes del envío</p>
+            </div>
+            <div><h4 id="total"></h4></div>
           </div>
-          
-          <div><h4 id="costoTotalEnvio"></h4></div>
-        </div>
-      </li>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between">
+            <div>
+              <h5>Envío</h5>
+              <p>Según el tipo de envío seleccionado</p>
+            </div>
+            <div><h4 id="costoEnvio"></h4></div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between">
+            <div>
+              <h5>Total en USD</h5>
+              <p>Costo en USD con envío incluido</p>
+            </div>
+            <div><h4 id="costoTotalEnvio"></h4></div>
+          </div>
+        </li>
+      </ul>
+  
+      <hr>
+      <div>
+        <h3>Forma de pago</h3>
+      </div>
 
-    </ul>
-    
-
-    
+      <div>
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#paymentModal">
+          Seleccionar
+        </button>
+        <div id="errorContainer" class="text-danger"></div>
+      </div>
+      <div class="container-fluid h-50"> 
+      <button class="w-50 align-items-center btn-primary mt-5" type="submit" id="enviarEnvio">Finalizar Compra</button>
     </div>
-
+    </form>
   </main>
+  
+  <div id="successMessage" class="alert alert-success text-center" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 999;">
+    ¡Has comprado con éxito!
+  </div>
 
+
+         
 
 
   <footer class="text-muted bg-light">
@@ -235,6 +265,66 @@
       <div></div>
     </div>
   </div>
+
+  <div class="modal fade bg-light" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title fs-5 m-1" id="paymentModalLabel">Forma de Pago</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+
+        <div class="modal-body">
+
+
+          <div class="form-check">
+            <div class="container-fluid">
+            <input class="form-check-input" type="radio" name="payment" id="creditCardOption">
+            <label class="form-check-label" for="creditCardOption">Tarjeta de Crédito</label>
+            </div>
+            <hr>
+              <!-- Campos de tarjeta de crédito -->
+                <div class="input-group row">
+                  <div class="col-7">
+                  <label  class="form-label" for="cardNumber">Número de Tarjeta</label>
+                  <input type="text" class="form-control" id="cardNumber" name="cardNumber" required>
+                </div>
+                <div class="col-4 ">
+                  <label  class="form-label" for="securityCode">Código de Seg.</label>
+                  <input type="text" class="form-control"id="securityCode" class="form-control" name="securityCode" required>
+                </div>
+                <div class="col-7 mt-3">
+                  <label class="form-label" for="expirationDate">Vencimiento (MM/AA)</label> <br>
+                  <input type="text" class="form-control"  id="expirationDate" name="expirationDate" required>
+                </div>
+                </div>
+               
+          </div>
+
+
+          <div class="form-check mt-4">
+            <div class="container-fluid">
+            <input class="form-check-input" type="radio" name="payment" id="bankTransferOption">
+            <label class="form-check-label" for="bankTransferOption">Transferencia Bancaria</label>
+          </div>
+            <div class="bank-transfer-details">
+              <hr>
+              <div class="col-7">
+                <label class="form-label" for="accountNumber">Número de Cuenta</label> <br>
+                <input class="form-control" type="text" id="accountNumber" name="accountNumber" required>
+              </div>
+              <br>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
