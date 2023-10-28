@@ -727,7 +727,10 @@ tfoot #totalTexto{
   text-align: right;
 
 }
-
+.modal-body {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: medium;
+}
 /*/////////////////*/
 
 /*Envio*/
