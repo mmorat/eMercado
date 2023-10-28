@@ -2,13 +2,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const baseURL = "https://japceibal.github.io/emercado-api/user_cart/";
   const userID = 25801; // ID de usuario específico
   const URL = baseURL + userID + ".json";
+
   let USD = 40; // valor del dólar en UYU 
+
   const cart = document.getElementById("cart");
   const total = document.getElementById("total");
   const costoEnvio = document.getElementById("costoEnvio");
   const costoTotalEnvio = document.getElementById("costoTotalEnvio");
-  let arrPreciosUSD = [];
   const envioRadios = document.getElementsByName("envio");
+
+  let arrPreciosUSD = [];
+
   let envioSeleccionado = "";
   let precioEnvio = "";
   let totalConEnvio = "";
@@ -40,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
       switchBackgroundClasses('bg-dark', 'bg-light');
       switchBackgroundClasses('btn-dark', 'btn-light');  
     };
-  }
+  };
 
   // función para sumar todos los elementos de un array
   function sumarArray(arr) {
@@ -161,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
            }
 
            articulo.remove();
-           actualizarTotal()
+           actualizarTotal();
         });
 
         cart.appendChild(articulo);
