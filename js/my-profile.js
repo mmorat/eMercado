@@ -1,138 +1,116 @@
 const username = sessionStorage.getItem("username") || localStorage.getItem("username");
 const email = document.getElementById("email");
+let inputNombre = document.getElementById("nombre");
+let nombreTexto = document.getElementById("nombreValid");
+let inputApellido = document.getElementById("apellido");
+let apellidoTexto = document.getElementById("apellidoValid");
+let inpuTel = document.getElementById("telefono");
+let telTexto = document.getElementById("telValid");
+let input2nombre = document.getElementById("segundoNombre");
+let input2apellido = document.getElementById("segundoApellido");
+let inputFoto = document.getElementById("fotoPerfil");
 
-document.addEventListener("DOMContentLoaded", ()=>{
-    email.value=username;
 
-    
- //VALIDACION Y Almacenamiento del usario en el localstorage
+document.addEventListener("DOMContentLoaded", () => {
+    email.value = username;
+    const nombre = localStorage.getItem("nombre");
+    inputNombre.value = nombre;
+    const apellido = localStorage.getItem("apellido");
+    inputApellido.value = apellido;
+    const telefono = localStorage.getItem("telefono");
+    inpuTel.value = telefono;
+    const segundoNombre = localStorage.getItem("segundo-nombre");
+    input2nombre.value = segundoNombre;
+    const segundoApellido = localStorage.getItem("segundo-apellido");
+    input2apellido.value = segundoApellido;
+    const Foto = localStorage.getItem("foto");
+    inputFoto.file = Foto;
+
+    //VALIDACION Y Almacenamiento del usario en el localstorage
     const form = document.getElementById("perfil")
-    form.addEventListener("submit", (e)=> {
-    e.preventDefault();
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
 
-    //input name
+        //input name
+        if (inputNombre.value === "") {
+            inputNombre.classList.remove("is-valid");
+            inputNombre.classList.add("is-invalid");
 
-  let inputNombre = document.getElementById("nombre");
-  let nombreTexto = document.getElementById("nombreValid");
+            nombreTexto.classList.remove("valid-feedback");
+            nombreTexto.classList.add("invalid-feedback");
 
-  if (inputNombre.value === "") {
-    inputNombre.classList.remove("is-valid");
-    inputNombre.classList.add("is-invalid");
+            nombreTexto.innerHTML = "Por favor, ingrese su nombre.";
+        } else {
+            inputNombre.classList.remove("is-invalid");
+            inputNombre.classList.add("is-valid");
 
-    nombreTexto.classList.remove("valid-feedback");
-    nombreTexto.classList.add("invalid-feedback");
+            nombreTexto.classList.remove("invalid-feedback");
+            nombreTexto.classList.add("valid-feedback");
+            nombreTexto.innerHTML = "";
+        }
+        localStorage.setItem("nombre", inputNombre.value);
 
-    nombreTexto.innerHTML = "Por favor, ingrese su nombre.";
-  } else {
-    inputNombre.classList.remove("is-invalid");
-    inputNombre.classList.add("is-valid");
+        //input apellido
 
-    nombreTexto.classList.remove("invalid-feedback");
-    nombreTexto.classList.add("valid-feedback");
-    nombreTexto.innerHTML = "";
-  }
-  localStorage.setItem("nombre", nombre.value);
+        if (inputApellido.value === "") {
+            inputApellido.classList.remove("is-valid");
+            inputApellido.classList.add("is-invalid");
 
-    //input apellido
-    
-    let inputApellido = document.getElementById("apellido");
-    let apellidoTexto = document.getElementById("apellidoValid");
- 
-    if (inputApellido.value === "") {
-    inputApellido.classList.remove("is-valid");
-    inputApellido.classList.add("is-invalid");
+            apellidoTexto.classList.remove("valid-feedback");
+            apellidoTexto.classList.add("invalid-feedback");
 
-    apellidoTexto.classList.remove("valid-feedback");
-    apellidoTexto.classList.add("invalid-feedback");
+            apellidoTexto.innerHTML = "Por favor, ingrese su apellido.";
+        } else {
+            inputApellido.classList.remove("is-invalid");
+            inputApellido.classList.add("is-valid");
 
-    apellidoTexto.innerHTML = "Por favor, ingrese su apellido.";
-  } else {
-    inputApellido.classList.remove("is-invalid");
-    inputApellido.classList.add("is-valid");
-
-    apellidoTexto.classList.remove("invalid-feedback");
-    apellidoTexto.classList.add("valid-feedback");
-    apellidoTexto.innerHTML = "";
-  }
-  localStorage.setItem("apellido", apellido.value);
-
-  //input email
-  let inputEmail = document.getElementById("email");
-  let emailTexto = document.getElementById("emailValid");
-
-  
-  if (inputEmail.value === "") {
-    inputEmail.classList.remove("is-valid");
-    inputEmail.classList.add("is-invalid");
-
-    emailTexto.classList.remove("valid-feedback");
-    emailTexto.classList.add("invalid-feedback");
-
-    emailTexto.innerHTML = "Por favor, ingrese correctamente su e-mail.";
-  } else if (!inputEmail.value.includes("@")) {
-    inputEmail.classList.remove("is-valid");
-    inputEmail.classList.add("is-invalid");
-
-    emailTexto.classList.remove("valid-feedback");
-    emailTexto.classList.add("invalid-feedback");
-
-    emailTexto.innerHTML = "Le falta @";
-  } else {
-    inputEmail.classList.remove("is-invalid");
-    inputEmail.classList.add("is-valid");
-
-    emailTexto.classList.remove("invalid-feedback");
-    emailTexto.classList.add("valid-feedback");
-    emailTexto.innerHTML = "";
-  }
-  
-  localStorage.setItem("e-mail", email.value);
-
-   //input telefono
-   let inputel = document.getElementById("telefono");
-   let telTexto = document.getElementById("telValid");
-
-   if (inputel.value === "") {
-    inputel.classList.remove("is-valid");
-    inputel.classList.add("is-invalid");
- 
-    telTexto.classList.remove("valid-feedback");
-    telTexto.classList.add("invalid-feedback");
- 
-    telTexto.innerHTML = "Por favor, ingrese su teléfono.";
-   } else if (isNaN(inputel.value)) {
-    inputel.classList.remove("is-valid");
-    inputel.classList.add("is-invalid");
- 
-    telTexto.classList.remove("valid-feedback");
-    telTexto.classList.add("invalid-feedback");
- 
-    telTexto.innerHTML = "tipee en formato numero por favor";
-   } else {
-    inputel.classList.remove("is-invalid");
-    inputel.classList.add("is-valid");
- 
-    telTexto.classList.remove("invalid-feedback");
-    telTexto.classList.add("valid-feedback");
-    telTexto.innerHTML = "";
-   }
-   localStorage.setItem("telefono", telefono.value);
+            apellidoTexto.classList.remove("invalid-feedback");
+            apellidoTexto.classList.add("valid-feedback");
+            apellidoTexto.innerHTML = "";
+        }
+        localStorage.setItem("apellido", inputApellido.value);
 
 
-// Datos no obligatorios pero que se almacenan
-   let input2nombre= document.getElementById("segundoNombre");
-   localStorage.setItem("segundo nombre", segundoNombre.value);
-   let input2apellido= document.getElementById("segundoApellido");
-   localStorage.setItem("segundo apellido", segundoApellido.value);
-   let inputFoto=document.getElementById("fotoPerfil");
-   localStorage.setItem("foto", fotoPerfol.value);
+        //input telefono
+
+        if (inpuTel.value === "") {
+            inpuTel.classList.remove("is-valid");
+            inpuTel.classList.add("is-invalid");
+
+            telTexto.classList.remove("valid-feedback");
+            telTexto.classList.add("invalid-feedback");
+
+            telTexto.innerHTML = "Por favor, ingrese su teléfono.";
+        } else if (isNaN(inpuTel.value)) {
+            inpuTel.classList.remove("is-valid");
+            inpuTel.classList.add("is-invalid");
+
+            telTexto.classList.remove("valid-feedback");
+            telTexto.classList.add("invalid-feedback");
+
+            telTexto.innerHTML = "tipee en formato numero por favor";
+        } else {
+            inpuTel.classList.remove("is-invalid");
+            inpuTel.classList.add("is-valid");
+
+            telTexto.classList.remove("invalid-feedback");
+            telTexto.classList.add("valid-feedback");
+            telTexto.innerHTML = "";
+        }
+        localStorage.setItem("telefono", inpuTel.value);
 
 
-      // Redirigir a la página principal
-      if (inputNombre.classList.contains("is-valid") &&
-      inputApellido.classList.contains("is-valid") &&
-      inputel.classList.contains("is-valid")) {
-        window.location.href = "index.html";
-      } 
+        // Datos no obligatorios pero que se almacenan
+        localStorage.setItem("segundo-nombre", input2nombre.value);
+        localStorage.setItem("segundo-apellido", input2apellido.value);
+        localStorage.setItem("foto", fotoPerfil.value);
+
+
+          // Redirigir a la página principal
+          if (inputNombre.value &&
+          inputApellido.value &&
+          inpuTel.value) {
+            window.location.href = "index.html";
+          } 
     });
 });

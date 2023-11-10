@@ -491,11 +491,6 @@ margin-left: 380px;
   background-color: white;
 }
 
-#relProducts img:hover{
-  max-height: 350px;
-  background-color: lightgray;
-}
-
 #relProducts h5{
   margin-left: 5px;
 }
