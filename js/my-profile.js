@@ -8,7 +8,6 @@ let inpuTel = document.getElementById("telefono");
 let telTexto = document.getElementById("telValid");
 let input2nombre = document.getElementById("segundoNombre");
 let input2apellido = document.getElementById("segundoApellido");
-let inputFoto = document.getElementById("fotoPerfil");
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -23,11 +22,30 @@ document.addEventListener("DOMContentLoaded", () => {
     input2nombre.value = segundoNombre;
     const segundoApellido = localStorage.getItem("segundo-apellido");
     input2apellido.value = segundoApellido;
-    const Foto = localStorage.getItem("foto");
-    inputFoto.file = Foto;
+
+    const fileInput = document.getElementById('foto');
+    const profileImage = document.getElementById('img');
+
+    // Cargar la imagen de perfil desde el almacenamiento local al cargar la página, si está disponible
+    const storedImage = localStorage.getItem('profileImage');
+    if (storedImage) {
+        profileImage.src = storedImage;
+    }
+
+    fileInput.addEventListener('change', (e) => {
+        if (e.target.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const imageData = e.target.result;
+                profileImage.src = imageData;
+                localStorage.setItem('profileImage', imageData); // Almacena los datos de la imagen en el almacenamiento local
+            };
+            reader.readAsDataURL(e.target.files[0]);
+        }
+    });
 
     //VALIDACION Y Almacenamiento del usario en el localstorage
-    const form = document.getElementById("perfil")
+    const form = document.getElementById("perfil");
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
@@ -103,14 +121,5 @@ document.addEventListener("DOMContentLoaded", () => {
         // Datos no obligatorios pero que se almacenan
         localStorage.setItem("segundo-nombre", input2nombre.value);
         localStorage.setItem("segundo-apellido", input2apellido.value);
-        localStorage.setItem("foto", fotoPerfil.value);
-
-
-          // Redirigir a la página principal
-          if (inputNombre.value &&
-          inputApellido.value &&
-          inpuTel.value) {
-            window.location.href = "index.html";
-          } 
     });
 });
