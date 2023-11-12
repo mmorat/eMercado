@@ -15,7 +15,7 @@ nav a {
 
 .navbar{
   background-color: black;
-  font-size: large;
+  font-size: x-large;
 }
 
 .bd-placeholder-img {
@@ -473,6 +473,8 @@ p.float-end a {
 position: relative;
 top: 0.5cqmax;
 margin-left: 380px;
+
+
 }
 
 
@@ -480,7 +482,7 @@ margin-left: 380px;
   color: orange;
 }
 
-/* PRODUCT-INFO PAGE */
+/*Product Info*/
 
 #imagenes{
   display: flex;
@@ -518,11 +520,19 @@ margin-left: 380px;
   background-color: white;
 }
 
+#relProducts img:hover{
+  max-height: 350px;
+  background-color: lightgray;
+}
+
 #relProducts h5{
   margin-left: 5px;
 }
 
-/* RESPONSIVE DE PROD-REL */
+
+/* PRODUCT-INFO PAGE */
+
+/* gral */
 #bodys{
   margin: 2vh;
   display: grid;
@@ -535,14 +545,17 @@ margin-left: 380px;
   display: flex;
   flex-direction: column;
   margin-top: 11vh;
+  font-size: x-large;
 }
 
 #infoCont h4{
   margin-top: 15px;
+  font-size: xx-large;
 }
 
-#prodRelacionados h2{
+#prodRelacionados h4{
   margin-top: 4vh;
+  font-size: 3vh;
 }
 
 /* titulo */
@@ -752,8 +765,10 @@ tfoot #totalTexto{
 /*Envio*/
 
 #enviarEnvio{
+  border: 1px;
+  border-radius: 7%;
+  margin-left: 30vh;
   font-size: x-large;
-  border-radius: 1vh;
 }
 
 #formEnvio input[type="text"]{
@@ -794,14 +809,8 @@ tfoot #totalTexto{
 
 }
 
-/*/////////////////*/
 
 
-/*Perfil*/
-
-#perfil div{
-  padding: 1lvh;
-}
 
 
 
@@ -825,26 +834,4 @@ tfoot #totalTexto{
   margin-top: 2vh;
   margin-bottom: 5vh;
   font-size: 2.5vh;
-}
-
-/* CARRITO DE COMPRAS */
-.bd-placeholder-img {
-  font-size: 1.125rem;
-  text-anchor: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
-}
-
-/* PERFIL DE USUARIO */
-#img {
-  max-width: 150px;
-  height: auto;
 }
