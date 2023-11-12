@@ -47,10 +47,10 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item dropdown"> <!-- Agregamos una lista desplegable -->
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
-              <span id="user-display"></span> <!-- Nombre de usuario aquí -->
+              <span id="user-display"></span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="userDropdown">
               <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
@@ -121,7 +121,7 @@
       <div>
         <div class="text-center p-4 bg-light">
           <div id="divCart">
-            <h3>Artículos a comprar</h3>
+            <h3 class="mb-3">Artículos a comprar</h3>
     
             <table class="table bg-light" id="cart">
               <thead>
@@ -135,7 +135,7 @@
                 </tr>
               </thead>
               <tbody>
-                <!-- Aquí puedes agregar filas de elementos del carrito si es necesario -->
+               
               </tbody>
             </table>
           </div>
@@ -144,7 +144,7 @@
        
       <div>
         <div>
-          <h3>Tipo de envío</h3>
+          <h3 class="mb-3">Tipo de envío</h3>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="envio" id="premiumRadio" value="0.15" required>
             <label class="form-check-label" for="premiumRadio">Premium - 2 a 5 días (15%)</label>
@@ -160,17 +160,17 @@
         </div>
         
         <br><br>
-        <h3>Dirección de envío</h3>
-        <div id="divEnvio" class="container bg-light">
+        <h3 class="mb-3">Dirección de envío</h3>
+        <div id="divEnvio" class="col-7 bg-light">
           <div class="row">
-            <div class="col-4">
+            <div class="col-7">
               <label for="calleEnvio">Calle</label>
               <input class="form-control bg-light" type="text" id="calleEnvio" required>
               <div class="invalid-feedback">
                 Por favor, ingresa tu calle.
               </div>
             </div>
-            <div class="col">
+            <div class="col-4">
               <label for="numero">Número</label>
               <input class="form-control bg-light" type="number" id="numero" required>
               <div class="invalid-feedback">
@@ -234,8 +234,8 @@
         </button>
         <div id="errorContainer" class="text-danger"></div>
       </div>
-      <div class="container-fluid h-50"> 
-      <button class="w-50 align-items-center btn-primary mt-5" type="submit" id="enviarEnvio">Finalizar Compra</button>
+      <div class="d-flex justify-content-end"> 
+      <button class="btn btn-primary mt-5" type="submit" id="enviarEnvio">Finalizar Compra</button>
     </div>
     </form>
   </main>

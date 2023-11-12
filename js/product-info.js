@@ -53,11 +53,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         cont.appendChild(div);
 
-        
+  // PRODUCTOS RELACIONADOS
         const div2 = document.createElement("div");
         div2.setAttribute("id", "relProducts");
         
-        const prodRel = document.createElement("h4");
+        const prodRel = document.createElement("h2");
         prodRel.textContent = "Productos Relacionados:";
         cont2.appendChild(prodRel);
 
@@ -90,7 +90,8 @@ document.addEventListener("DOMContentLoaded", function () {
         div2.appendChild(divRel1);
 
         cont2.appendChild(div2);
-      
+
+// CARRUSEL
         const carruInner = document.getElementById("carousel-inner");
 
         for (let index = 0; index < arrayImagen.length; index++) {
@@ -103,8 +104,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
           carouselItem.appendChild(imgElement);
           carruInner.appendChild(carouselItem);
-
-          // Establece el primer elemento como activo
           if (index === 0) {
             carouselItem.classList.add("active");
           }
@@ -130,12 +129,11 @@ document.addEventListener("DOMContentLoaded", function () {
   if (selectedProductId) {
     fetchInfo()
   } else {
-    // Maneja el caso en el que no se haya seleccionado ningún producto
     console.log("No se ha seleccionado ningún producto.");
   }
 
 
-  // codigo sobre comentarios 
+  // COMENTARIOS 
   const username = sessionStorage.getItem("username") || localStorage.getItem("username");
   const containerComentarios = document.getElementById('comments-container');
   const formComentarios = document.getElementById('comment-form');
