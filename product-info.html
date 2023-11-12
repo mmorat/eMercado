@@ -137,25 +137,26 @@
       </div>
     </div>
 
-
+    <!-- BOTON COMPRAR -->
     <div id="infoCont" class="container col-10">
       <div>
-        <button id="comprar" class="btn btn-primary btn-lg active" role="button" aria-pressed="true"><i class="fa fa-shopping-cart"></i> Comprar</button>
+        <button id="comprar" class="btn btn-primary btn-lg active" role="button" aria-pressed="true"><i
+            class="fa fa-shopping-cart"></i> Comprar</button>
       </div>
     </div>
+
+    <!-- Productos REL -->
     <div id="prodRelacionados" class="container col-10">
     </div>
-    <div id="seccioncomentarios" class="container col-10">
-      <br><br>
-      <h1>Comentarios y Puntuaciones</h1><br>
+
+    <!-- COMENTARIOS -->
+    <div id="seccioncomentarios" class="container mt-4 col-10">
+      <h2 class="mb-4">Comentarios y Puntuaciones</h2>
       <div id="comments-container"></div>
-      <h2 id="tituloComentayPuntua">Comenta y puntúa:</h2><br>
+      <h2 class="mb-4" id="tituloComentayPuntua">Comenta y puntúa:</h2>
       <form id="comment-form">
-
-
         <textarea id="comment" class="col-12 bg-light" name="comment" placeholder=" Escribe tu comentario aquí..."
           rows="3" cols="70"></textarea><br>
-
 
         <label for="rating">Puntuación:</label>
         <select id="rating" class="bg-light" name="rating">
@@ -165,13 +166,14 @@
           <option value="4">4 estrellas</option>
           <option value="5">5 estrellas</option>
         </select><br>
-
-        <input type="submit" class="bg-light" value="Agregar comentario" id="submitboton">
+        <div class="d-flex justify-content-end">
+          <input type="submit" class="bg-secondary" value="Agregar comentario" id="submitboton">
+        </div>
       </form>
     </div>
-
-
   </main>
+
+
   <footer class="pies text-muted bg-light">
     <div class="container">
       <p class="float-end">

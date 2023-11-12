@@ -293,27 +293,25 @@ const expirationDateInput = document.getElementById('expirationDate');
 
 // Agregar eventos de cambio a los elementos de radio
 creditCardOption.addEventListener('change', function () {
-  accountNumberInput.disabled = true; // Desactivar el campo "Número de Cuenta"
-  cardNumberInput.disabled = false; // Habilitar el campo "Número de Tarjeta"
-  securityCodeInput.disabled = false; // Habilitar el campo "Código de Seguridad"
-  expirationDateInput.disabled = false; // Habilitar el campo "Fecha de Vencimiento"
+  accountNumberInput.disabled = true;  
+  cardNumberInput.disabled = false; 
+  securityCodeInput.disabled = false;  
+  expirationDateInput.disabled = false;  
 });
 
 bankTransferOption.addEventListener('change', function () {
-  accountNumberInput.disabled = false; // Habilitar el campo "Número de Cuenta"
-  cardNumberInput.disabled = true; // Desactivar el campo "Número de Tarjeta"
-  securityCodeInput.disabled = true; // Desactivar el campo "Código de Seguridad"
-  expirationDateInput.disabled = true; // Desactivar el campo "Fecha de Vencimiento"
+  accountNumberInput.disabled = false;  
+  cardNumberInput.disabled = true; 
+  securityCodeInput.disabled = true;  
+  expirationDateInput.disabled = true; 
 });
 
 //validacion bootstrap
 (() => {
   'use strict'
-
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+ 
   const forms = document.querySelectorAll('.needs-validation')
 
-  // Loop over them and prevent submission
   Array.from(forms).forEach(form => {
     form.addEventListener('submit', event => {
       if (!form.checkValidity()) {
@@ -326,7 +324,6 @@ bankTransferOption.addEventListener('change', function () {
   })
 })()
 
-//validacion:
 
 //chequea que una de los métodos de pago haya sido elegido
 const form = document.getElementById("checkoutForm");
@@ -338,28 +335,23 @@ const form = document.getElementById("checkoutForm");
     } else if (form.checkValidity()) {
       event.preventDefault();
 
-      //mensaje de éxito
       const successMessage = document.getElementById("successMessage");
       successMessage.style.display = "block";
-
-      //redirección tras 4seg
       setTimeout(function () {
         successMessage.style.display = "none";
         window.location.href = "index.html";
       }, 4000);
     }
   });
-
-  //si tras error, uno de los métodos fue elegido
+ 
   creditCardOption.addEventListener('change', function () {
-    clearErrorMessage(); //elimina el mensaje de error
+    clearErrorMessage();  
   });
 
   bankTransferOption.addEventListener('change', function () {
-    clearErrorMessage(); //elimina el mensaje de error
+    clearErrorMessage(); 
   });
 
-  //funcion para eliminar el mensaje de error
   function clearErrorMessage() {
     const errorContainer = document.getElementById("errorContainer");
     errorContainer.textContent = "";
