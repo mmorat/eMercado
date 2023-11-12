@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const fileInput = document.getElementById('foto');
     const profileImage = document.getElementById('img');
 
-    // carga la imagen de perfil desde local storage (si existe)
+    
     const storedImage = localStorage.getItem('profileImage');
     if (storedImage) {
         profileImage.src = storedImage;
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
             reader.onload = function (e) {
                 const imageData = e.target.result;
                 profileImage.src = imageData;
-                localStorage.setItem('profileImage', imageData); // almacena la imagen en localstorage
+                localStorage.setItem('profileImage', imageData); 
             };
             reader.readAsDataURL(e.target.files[0]);
         }

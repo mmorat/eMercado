@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () { 
+document.addEventListener("DOMContentLoaded", function () {
   const selectedProductId = localStorage.getItem("selectedProductId");
 
 
@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch(productInfoURL)
       .then((response) => response.json())
       .then((product) => {
-        // Actualiza el contenido de la página con la información del producto
 
         const cont = document.getElementById("infoCont");
         const cont2 = document.getElementById("prodRelacionados");
@@ -36,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const pUnidades = document.createElement("p");
         pUnidades.textContent = product.soldCount;
         div.appendChild(pUnidades);
-        
+
         const precio = document.createElement("h4");
         precio.textContent = "Precio:";
         div.appendChild(precio);
@@ -53,10 +52,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         cont.appendChild(div);
 
-  // PRODUCTOS RELACIONADOS
+        // PRODUCTOS RELACIONADOS
         const div2 = document.createElement("div");
         div2.setAttribute("id", "relProducts");
-        
+
         const prodRel = document.createElement("h2");
         prodRel.textContent = "Productos Relacionados:";
         cont2.appendChild(prodRel);
@@ -91,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         cont2.appendChild(div2);
 
-// CARRUSEL
+        // CARRUSEL
         const carruInner = document.getElementById("carousel-inner");
 
         for (let index = 0; index < arrayImagen.length; index++) {
@@ -204,21 +203,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   const btnComprar = document.getElementById("comprar");
-  
+
 
   btnComprar.addEventListener("click", (e) => {
     e.stopPropagation();
     btnComprar.classList.remove("btn-primary")
     btnComprar.classList.add("btn-secondary")
-    
+
     // Recuperar el arreglo de productos del localStorage
     let cartProds = JSON.parse(localStorage.getItem("cartProducts")) || [];
-    // Agregar el producto seleccionado al arreglo
     cartProds.push(selectedProductId);
-  
-    // Almacenar el arreglo actualizado en el localStorage
     localStorage.setItem("cartProducts", JSON.stringify(cartProds));
   });
-  
+
 
 })
