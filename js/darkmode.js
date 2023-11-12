@@ -44,6 +44,8 @@
     });
   };
 
+  const indexBanner = document.querySelector('.jumbotron').style.backgroundImage;
+
   function darkmodeDinamico() {
     
     const tema = getTheme();
@@ -51,15 +53,22 @@
     if (tema === 'dark') {
       switchBackgroundClasses('bg-light', 'bg-dark');
       switchBackgroundClasses('btn-light', 'btn-dark');
-      if (window.location.pathname.endsWith('index.html')){
-        document.querySelector('.jumbotron').style.backgroundImage = 'url(img/cover_back_dark.png)';
-      }   
+
+      if ((window.location.pathname.endsWith('index.html')) && window.innerWidth < "768px"){
+        indexBanner = 'url(img/cover_back_dark_chiquito.png)'
+      } else if ((window.location.pathname.endsWith('index.html')) && window.innerWidth > "768px"){
+        indexBanner = 'url(img/cover_back_dark.png)'
+      }
+
     } else if (tema === 'light'){
-      switchBackgroundClasses('bg-dark', 'bg-light');
-      switchBackgroundClasses('btn-dark', 'btn-light');
-      if (window.location.pathname.endsWith('index.html')){
-        document.querySelector('.jumbotron').style.backgroundImage = 'url(img/cover_back.png)';
-      }   
+    switchBackgroundClasses('bg-dark', 'bg-light');
+    switchBackgroundClasses('btn-dark', 'btn-light');
+
+      if ((window.location.pathname.endsWith('index.html')) && window.innerWidth < "768px"){
+        indexBanner = 'url(img/cover_back_chiquito.png)'
+      } else if ((window.location.pathname.endsWith('index.html')) && window.innerWidth > "768px"){
+        indexBanner = 'url(img/cover_back.png)'
+      }
     };
   }
 
@@ -72,18 +81,24 @@
     e.stopPropagation();
     switchBackgroundClasses('bg-dark', 'bg-light');
     switchBackgroundClasses('btn-dark', 'btn-light');
-    if (window.location.pathname.endsWith('index.html')){
-      document.querySelector('.jumbotron').style.backgroundImage = 'url(img/cover_back.png)';
-    }   
+
+      if ((window.location.pathname.endsWith('index.html')) && window.innerWidth < "768px"){
+        indexBanner = 'url(img/cover_back_chiquito.png)'
+      } else if ((window.location.pathname.endsWith('index.html')) && window.innerWidth > "768px"){
+        indexBanner = 'url(img/cover_back.png)'
+      }
   });
 
   btnD.addEventListener("click", (e) => {
     e.stopPropagation();
     switchBackgroundClasses('bg-light', 'bg-dark');
     switchBackgroundClasses('btn-light', 'btn-dark');
-    if (window.location.pathname.endsWith('index.html')){
-      document.querySelector('.jumbotron').style.backgroundImage = 'url(img/cover_back_dark.png)';
-    } 
+
+    if ((window.location.pathname.endsWith('index.html')) && window.innerWidth < "768px"){
+      indexBanner = 'url(img/cover_back_dark_chiquito.png)'
+    } else if ((window.location.pathname.endsWith('index.html')) && window.innerWidth > "768px"){
+      indexBanner = 'url(img/cover_back_dark.png)'
+    }
   });
 
 
