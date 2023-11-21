@@ -15,7 +15,7 @@ nav a {
 
 .navbar{
   background-color: black;
-  font-size: x-large;
+  font-size: large;
 }
 
 .bd-placeholder-img {
@@ -46,42 +46,13 @@ nav a {
   font-weight: bold;
 }
 
+
 @media (min-width: 768px) {
-  .jumbotron.bg-light {
+  .jumbotron {
     padding-top: 6rem;
     padding-bottom: 6rem;
-    background: url('../img/cover_back.png');
-    background-size: 112vw;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  .jumbotron.bg-dark {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-    background: url('../img/cover_back_dark.png');
-    background-size: 112vw;
-    background-position: center;
-    background-repeat: no-repeat;
   }
 }
-
-@media (max-width: 768px) {
-  .jumbotron.bg-light {
-    background: url('../img/cover_back_chiquito.png');
-    background-size: 112vw;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  .jumbotron.bg-dark{
-    background: url('../img/cover_back_dark_chiquito.png');
-    background-size: 112vw;
-    background-position: center;
-    background-repeat: no-repeat;
-
-  }
-}
-
-
 
 .jumbotron p:last-child {
   margin-bottom: 0;
@@ -473,8 +444,6 @@ p.float-end a {
 position: relative;
 top: 0.5cqmax;
 margin-left: 380px;
-
-
 }
 
 
@@ -482,7 +451,7 @@ margin-left: 380px;
   color: orange;
 }
 
-/*Product Info*/
+/* PRODUCT-INFO PAGE */
 
 #imagenes{
   display: flex;
@@ -520,19 +489,11 @@ margin-left: 380px;
   background-color: white;
 }
 
-#relProducts img:hover{
-  max-height: 350px;
-  background-color: lightgray;
-}
-
 #relProducts h5{
   margin-left: 5px;
 }
 
-
-/* PRODUCT-INFO PAGE */
-
-/* gral */
+/* RESPONSIVE DE PROD-REL */
 #bodys{
   margin: 2vh;
   display: grid;
@@ -545,17 +506,14 @@ margin-left: 380px;
   display: flex;
   flex-direction: column;
   margin-top: 11vh;
-  font-size: x-large;
 }
 
 #infoCont h4{
   margin-top: 15px;
-  font-size: xx-large;
 }
 
-#prodRelacionados h4{
+#prodRelacionados h2{
   margin-top: 4vh;
-  font-size: 3vh;
 }
 
 /* titulo */
@@ -725,6 +683,9 @@ table#cart td, table#cart tr, table#cart th{
   padding: 10px;
   width:fit-content
 }
+#cart.bg-light input{
+  background-color: white !important;
+}
 
 table.bg-dark{
   color: #ffffff;
@@ -760,15 +721,25 @@ tfoot #totalTexto{
   background-color: rgb(248, 62, 62);
 }
 
+#paymentModal.bg-dark{
+  background-color: rgb(18, 19, 19) !important;
+}
+
+#paymentModal.bg-light{
+  background-color: lightgray !important;
+}
+
+
+#paymentModal.bg-light input{
+  background-color: white !important;
+}
 /*/////////////////*/
 
 /*Envio*/
 
 #enviarEnvio{
-  border: 1px;
-  border-radius: 7%;
-  margin-left: 30vh;
   font-size: x-large;
+  border-radius: 1vh;
 }
 
 #formEnvio input[type="text"]{
@@ -789,6 +760,10 @@ tfoot #totalTexto{
   width: 100px;
 }
 
+#divEnvio.bg-light input{
+  background-color: white !important;
+}
+
 @media screen and (max-width: 400px) {
    #formEnvio input[type="text"]{
     width: 85vw;
@@ -799,18 +774,28 @@ tfoot #totalTexto{
   border-radius: 3px;
 }
 
+#listaCostos.bg-light li{
+  background-color: rgb(248,249,250);
+}
+
 #listaCostos p{
   color: gray;
 }
 
 #listaCostos.bg-dark li{
-  background-color: #222527 !important;
+  background-color: rgb(33,37,41) !important;
   border-color: lightgray;
 
 }
 
+/*/////////////////*/
 
 
+/*Perfil*/
+
+#perfil div{
+  padding: 1lvh;
+}
 
 
 
@@ -834,4 +819,26 @@ tfoot #totalTexto{
   margin-top: 2vh;
   margin-bottom: 5vh;
   font-size: 2.5vh;
+}
+
+/* CARRITO DE COMPRAS */
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+/* PERFIL DE USUARIO */
+#img {
+  max-width: 150px;
+  height: auto;
 }
