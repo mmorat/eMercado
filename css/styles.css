@@ -47,12 +47,39 @@ nav a {
 }
 
 
-@media (min-width: 768px) {
-  .jumbotron {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+  @media (min-width: 768px) {
+    .jumbotron.bg-light {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+      background: url('../img/cover_back.png');
+      background-size: 112vw;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .jumbotron.bg-dark {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+      background: url('../img/cover_back_dark.png');
+      background-size: 112vw;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
   }
-}
+
+  @media (max-width: 768px) {
+    .jumbotron.bg-light {
+      background: url('../img/cover_back_chiquito.png');
+      background-size: 112vw;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .jumbotron.bg-dark{
+      background: url('../img/cover_back_dark_chiquito.png');
+      background-size: 112vw;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
 
 .jumbotron p:last-child {
   margin-bottom: 0;
